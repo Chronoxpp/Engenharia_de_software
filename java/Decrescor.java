@@ -16,6 +16,7 @@ class Descrescor
         System.out.println("Digite o ultimo numero: ");
         v3 = Leitor.nextInt();
 
+        System.out.print("Os numeros em ordem decrescente: ");
         if(v1>v2)
         {
             if(v1>v3)
