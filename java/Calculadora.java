@@ -24,33 +24,8 @@ class Calculadora
         v1 = Leitor.nextInt();
         System.out.print("Insira a operação: ");
         operador = Leitor.next();
-        
-        if(operador.equalsIgnoreCase("r"))
-        {
-            if(v1>=0)
-            {
-                resultado = v1 + v2;
-                System.out.println("Resultado: em desenvolvimento!");
-            }
-            else
-            {
-                System.out.print("Não é possivel encontrar a raiz de numero negativos");
-            }
-
-        }
-        else
-        {
-            if(operador.equals("**"))
-            {
-            //resultado = v1 * v2;
-            System.out.println("Resultado: em desenvolvimento!");
-            }
-            else 
-            {
-                System.out.print("Insira o segundo numero: ");
-                v2 = Leitor.nextInt();
-            }
-        }
+        System.out.print("Insira o segundo numero: ");
+        v2 = Leitor.nextInt();
 
 
         if(operador.equals("+"))
@@ -73,7 +48,46 @@ class Calculadora
 
         if(operador.equals("/"))
         {
-            resultado = v1 / v2;
+            if(v2 != 0)
+            {
+                resultado = v1 / v2;
+                System.out.println("Resultado: "+resultado);
+            }
+            else
+            {
+                System.out.println("Não é possivel realizar divisões por 0");
+            }
+
+        }
+
+        if(operador.equalsIgnoreCase("r"))
+        {
+            if(v1>=0)
+            {
+                resultado = v1 + v2;
+                System.out.println("Resultado: em desenvolvimento!");
+            }
+            else
+            {
+                System.out.print("Não é possivel encontrar a raiz de numero negativos");
+            }
+        }
+
+        if(operador.equals("**"))
+        {
+            if(v2 == 0)
+            {
+                resultado = 1;
+            }
+            else
+            {
+                resultado = v1;
+                for(int i = 2;i<=v2;i = i + 1)
+                {
+                   resultado = resultado * v1;
+                }    
+            }
+            
             System.out.println("Resultado: "+resultado);
         }
 
