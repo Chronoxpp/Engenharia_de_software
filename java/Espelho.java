@@ -6,7 +6,6 @@ class Espelho
     {
         Scanner Leitor = new Scanner(System.in);
         long numrecebido,divisor,restop;
-        boolean parada;
         divisor = 10;
         restop = 0;
         
