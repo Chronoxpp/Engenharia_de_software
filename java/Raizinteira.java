@@ -20,5 +20,7 @@ class Raizinteira
                 
             }
         }
+
+        Leitor.close();
     }
 }
