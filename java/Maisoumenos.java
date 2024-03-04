@@ -10,7 +10,8 @@ class Maisoumenos
         maior = 0;
         menor = 0;
         
-        System.out.println("Quantos numeros você deseja usar?");
+
+        System.out.println("Quantos numeros você deseja comparar?");
         numeros = Leitor.nextInt();
 
         for(i = 1; i <= numeros;i = i +1)
@@ -37,7 +38,6 @@ class Maisoumenos
 
         System.out.println(" ");
         System.out.print("maior numero: "+maior+" e menor numero: "+menor);
-
         Leitor.close();
     }
 }
