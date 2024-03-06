@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-class Fatoriando
+class Questao8
 {
     public static void main(String[] args)
     {

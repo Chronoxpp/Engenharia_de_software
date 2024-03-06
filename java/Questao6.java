@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-class Raizinteira
+class Questao6
 {
     public static void main(String[] args)
     {

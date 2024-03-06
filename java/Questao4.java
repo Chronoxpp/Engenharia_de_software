@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-class Vendas
+class Questao4
 {
     public static void main(String[] argds)
     {

@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-class Calculadora
+class Questao5
 {
     public static void main(String[] argds)
     {

@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-class Nsobreh{
+class Questao7{
     public static void main(String[] args){
         Scanner Leitor = new Scanner(System.in);
         int v1;

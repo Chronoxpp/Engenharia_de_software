@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-class Prodemgrp
+class Questao2
 {
     public static void main(String[] argds)
     {

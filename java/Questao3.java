@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-class Nadador
+class Questao3
 {
     public static void main(String[] argds)
     {

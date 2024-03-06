@@ -1,4 +1,4 @@
-class Osperfeitos
+class Operfeito1
 {    
     public static void main(String[] args) 
     {
