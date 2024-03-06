@@ -13,6 +13,7 @@ class Questao11
         System.out.println("2 = Ave");
         System.out.println("3 = Réptil");
         opcao = Leitor.nextInt();
+        System.out.println("");
 
         switch(opcao)
         {
@@ -22,12 +23,14 @@ class Questao11
                 System.out.println("3 = Voador");
                 System.out.println("4 = Aquatico");
                 opcao = Leitor.nextInt();
+                System.out.println("");
 
                 if(opcao == 1)
                 {
                     System.out.println("1 = Carnivoros");
                     System.out.println("2 = Herbivoros");
                     opcao = Leitor.nextInt();
+                    System.out.println("");
 
                     if(opcao == 1)
                     {
@@ -45,6 +48,7 @@ class Questao11
                         System.out.println("1 = Onivoros");
                         System.out.println("2 = Frutivoros");
                         opcao = Leitor.nextInt();
+                        System.out.println("");
 
                         if(opcao == 1)
                         {
@@ -74,12 +78,14 @@ class Questao11
                 System.out.println("2 = Nadadora");
                 System.out.println("3 = De rapina");
                 opcao = Leitor.nextInt();
+                System.out.println("");
 
                 if(opcao == 1)
                 {
                     System.out.println("1 = Tropicais");
                     System.out.println("2 = Polares");
                     opcao = Leitor.nextInt();
+                    System.out.println("");
 
                     if(opcao == 1)
                     {
@@ -108,6 +114,7 @@ class Questao11
                 System.out.println("2 = Carnivoro");
                 System.out.println("3 = Sem patas");
                 opcao = Leitor.nextInt();
+                System.out.println("");
 
                 if(opcao == 1)
                 {
