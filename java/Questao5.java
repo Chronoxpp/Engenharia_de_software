@@ -44,19 +44,16 @@ class Questao5
                     resultado = v1 + v2;
                     System.out.println("Resultado: "+resultado);
                 }
-
                 if(operador.equals("-"))
                 {
                     resultado = v1 - v2;
                     System.out.println("Resultado: "+resultado);
                 }
-
                 if(operador.equals("*"))
                 {
                     resultado = v1 * v2;
                     System.out.println("Resultado: "+resultado);
                 }
-
                 if(operador.equals("/"))
                 {
                     if(v2 != 0)
@@ -70,7 +67,6 @@ class Questao5
                     }
 
                 }
-
                 if(operador.equalsIgnoreCase("r"))
                 {
                     if(v1>=0)
@@ -83,7 +79,6 @@ class Questao5
                         System.out.print("Não é possivel encontrar a raiz de numero negativos");
                     }
                 }
-
                 if(operador.equals("**"))
                 {
                     if(v2 == 0)
@@ -98,7 +93,6 @@ class Questao5
                         resultado = resultado * v1;
                         }    
                     }
-
                     System.out.println("Resultado: "+resultado);
                 }
 
