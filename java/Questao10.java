@@ -2,14 +2,13 @@ import java.util.Scanner;
 
 class Questao10
 {
-    public static void main(String[] agrs)
+    public static void main(String[] args)
     {
         Scanner Leitor = new Scanner(System.in);
         float maior,menor,atual;
         int numeros,i;
         maior = 0;
         menor = 0;
-        
 
         System.out.println("Quantos numeros você deseja comparar?");
         numeros = Leitor.nextInt();
@@ -38,6 +37,7 @@ class Questao10
 
         System.out.println(" ");
         System.out.print("maior numero: "+maior+" e menor numero: "+menor);
+
         Leitor.close();
     }
 }
