@@ -6,14 +6,14 @@ class Questao10
     {
         Scanner Leitor = new Scanner(System.in);
         float maior,menor,atual;
-        int numeros,i;
+        int numeros;
         maior = 0;
         menor = 0;
 
         System.out.println("Quantos numeros você deseja comparar?");
         numeros = Leitor.nextInt();
 
-        for(i = 1; i <= numeros;i = i +1)
+        for(int i = 1; i <= numeros;i = i +1)
         {
             System.out.print("Digite um numero: ");
             atual = Leitor.nextFloat();
