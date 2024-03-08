@@ -5,21 +5,20 @@ class Questao8
     public static void main(String[] args)
     {
         Scanner leitor = new Scanner(System.in);
-        int n;
+        int n1;
         long resultado;
-        resultado = 1;
 
-        System.out.print("Digite um numero: ");
-        n = leitor.nextInt();
+        System.out.print("Calcular N! sendo N = ");
+        n1 = leitor.nextInt();
 
-        if(n == 0)
+        if(n1 == 0)
         {
             resultado = 1;
         }
         else
         {
-            resultado = n;
-            for(int i = (n-1); i != 1; i = i - 1)
+            resultado = n1;
+            for(int i = (n1-1); i != 1; i = i - 1)
             {
                 resultado = resultado * i;
             }
