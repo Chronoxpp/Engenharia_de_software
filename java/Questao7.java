@@ -1,19 +1,22 @@
 import java.util.Scanner;
 
-class Questao7{
-    public static void main(String[] args){
+class Questao7
+{
+    public static void main(String[] args)
+    {
         Scanner leitor = new Scanner(System.in);
-        int v1;
-        float h; 
-        System.out.print("Digite um numero: ");
-        v1 = leitor.nextInt();
-        h = 0;
+        int n1;
+        double h = 0;
 
-        for(float i = 1; i <= v1; i = i +1){
+        System.out.print("Tamanho da sequencia: ");
+        n1 = leitor.nextInt();
+
+        for(double i = 1.0; i <= n1; i = i +1.0)
+        {
             h = h + (1/i);
         }
 
-        System.out.print("O resultado é: "+h);
+        System.out.print("O resultado é aproximadamente: "+h);
 
         leitor.close();
     }
