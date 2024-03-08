@@ -118,7 +118,15 @@ class Questao5
 
     public static int divide(int n1, int n2)
     {
-        return (n1/n2);
+        if(n2 != 0)
+        {
+            return (n1/n2);
+        }
+        else
+        {
+            System.out.println("Não é possivel dividir por 0");
+            return 0;
+        }
     }
 
 
