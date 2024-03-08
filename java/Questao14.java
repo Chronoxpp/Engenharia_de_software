@@ -4,13 +4,13 @@ class Questao14
 {
     public static void main(String[] args)
     {
-        Scanner Leitor = new Scanner(System.in);
+        Scanner leitor = new Scanner(System.in);
         int n1, n2, result;
 
         System.out.print("Numero: ");
-        n1 = Leitor.nextInt();
+        n1 = leitor.nextInt();
         System.out.print("Elevado a ");
-        n2 = Leitor.nextInt();
+        n2 = leitor.nextInt();
 
         if(n2 == 0)
         {
@@ -26,6 +26,6 @@ class Questao14
         }
         System.out.println("Resultado: "+result);
 
-        Leitor.close();
+        leitor.close();
     }
 }

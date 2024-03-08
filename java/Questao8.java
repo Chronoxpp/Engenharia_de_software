@@ -4,13 +4,13 @@ class Questao8
 {
     public static void main(String[] args)
     {
-        Scanner Leitor = new Scanner(System.in);
+        Scanner leitor = new Scanner(System.in);
         int n;
         long resultado;
         resultado = 1;
 
         System.out.print("Digite um numero: ");
-        n = Leitor.nextInt();
+        n = leitor.nextInt();
 
         if(n == 0)
         {
@@ -27,6 +27,6 @@ class Questao8
 
         System.out.print("Resultado: "+resultado);
 
-        Leitor.close();
+        leitor.close();
     }
 }

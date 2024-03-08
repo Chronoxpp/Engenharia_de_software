@@ -4,11 +4,11 @@ class Questao2
 {
     public static void main(String[] argds)
     {
-        Scanner Leitor = new Scanner(System.in);
+        Scanner leitor = new Scanner(System.in);
         int codigo;
 
         System.out.println("Insira o codigo do produto:");
-        codigo = Leitor.nextInt();
+        codigo = leitor.nextInt();
 
         if(codigo == 1)
         {
@@ -40,6 +40,6 @@ class Questao2
             System.out.println("Inválido");
         }
 
-        Leitor.close();
+        leitor.close();
     }
 }

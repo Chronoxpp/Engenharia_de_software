@@ -4,11 +4,11 @@ class Questao3
 {
     public static void main(String[] argds)
     {
-        Scanner Leitor = new Scanner(System.in);
+        Scanner leitor = new Scanner(System.in);
         int codigo;
 
         System.out.println("Insira a idade do nadador");
-        codigo = Leitor.nextInt();
+        codigo = leitor.nextInt();
 
         if(codigo < 5) 
         {
@@ -40,6 +40,6 @@ class Questao3
             System.out.println("Adulto");
         }
 
-        Leitor.close();
+        leitor.close();
     }
 }

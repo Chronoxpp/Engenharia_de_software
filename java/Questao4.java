@@ -4,14 +4,14 @@ class Questao4
 {
     public static void main(String[] argds)
     {
-        Scanner Leitor = new Scanner(System.in);
+        Scanner leitor = new Scanner(System.in);
         int codigo;
         float vliquido,vbruto;
 
         vbruto = 100;
 
         System.out.println("Insira o codigo da forma de pagamento");
-        codigo = Leitor.nextInt();
+        codigo = leitor.nextInt();
 
         if(codigo < 1 | codigo > 5)
         {
@@ -42,6 +42,6 @@ class Questao4
             System.out.println("Valor final: "+vliquido);
         }
 
-        Leitor.close();
+        leitor.close();
     }
 }

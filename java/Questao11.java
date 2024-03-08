@@ -4,15 +4,15 @@ class Questao11
 {
     public static void main(String[] args)
     {
-        Scanner Leitor;
-        Leitor = new Scanner(System.in);
+        Scanner leitor;
+        leitor = new Scanner(System.in);
         int opcao;
 
         System.out.println("Escolha uma das opções abaixo:");
         System.out.println("1 = Mamifero");
         System.out.println("2 = Ave");
         System.out.println("3 = Réptil");
-        opcao = Leitor.nextInt();
+        opcao = leitor.nextInt();
         System.out.println("");
 
         switch(opcao)
@@ -22,14 +22,14 @@ class Questao11
                 System.out.println("2 = Bipede");
                 System.out.println("3 = Voador");
                 System.out.println("4 = Aquatico");
-                opcao = Leitor.nextInt();
+                opcao = leitor.nextInt();
                 System.out.println("");
 
                 if(opcao == 1)
                 {
                     System.out.println("1 = Carnivoros");
                     System.out.println("2 = Herbivoros");
-                    opcao = Leitor.nextInt();
+                    opcao = leitor.nextInt();
                     System.out.println("");
 
                     if(opcao == 1)
@@ -47,7 +47,7 @@ class Questao11
                     {
                         System.out.println("1 = Onivoros");
                         System.out.println("2 = Frutivoros");
-                        opcao = Leitor.nextInt();
+                        opcao = leitor.nextInt();
                         System.out.println("");
 
                         if(opcao == 1)
@@ -77,14 +77,14 @@ class Questao11
                 System.out.println("1 = Não-voadora");
                 System.out.println("2 = Nadadora");
                 System.out.println("3 = De rapina");
-                opcao = Leitor.nextInt();
+                opcao = leitor.nextInt();
                 System.out.println("");
 
                 if(opcao == 1)
                 {
                     System.out.println("1 = Tropicais");
                     System.out.println("2 = Polares");
-                    opcao = Leitor.nextInt();
+                    opcao = leitor.nextInt();
                     System.out.println("");
 
                     if(opcao == 1)
@@ -113,7 +113,7 @@ class Questao11
                 System.out.println("1 = Com casco");
                 System.out.println("2 = Carnivoro");
                 System.out.println("3 = Sem patas");
-                opcao = Leitor.nextInt();
+                opcao = leitor.nextInt();
                 System.out.println("");
 
                 if(opcao == 1)
@@ -134,6 +134,6 @@ class Questao11
             break;
         }
 
-        Leitor.close();
+        leitor.close();
     }
 }

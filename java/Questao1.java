@@ -4,17 +4,17 @@ class Questao1
 {
     public static void main(String[] args)
     {
-        Scanner Leitor = new Scanner(System.in);
+        Scanner leitor = new Scanner(System.in);
         int v1,v2,v3;
 
         System.out.println("Digite um numero: ");
-        v1 = Leitor.nextInt();
+        v1 = leitor.nextInt();
 
         System.out.println("Digite outro numero: ");
-        v2 = Leitor.nextInt();
+        v2 = leitor.nextInt();
 
         System.out.println("Digite o ultimo numero: ");
-        v3 = Leitor.nextInt();
+        v3 = leitor.nextInt();
 
         System.out.print("Os numeros em ordem decrescente: ");
         if(v1>v2)
@@ -66,6 +66,6 @@ class Questao1
             }
         }
 
-        Leitor.close();
+        leitor.close();
     }
 }

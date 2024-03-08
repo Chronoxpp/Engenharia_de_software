@@ -4,7 +4,7 @@ class Questao9
 {
     public static void main(String[] args)
     {
-        Scanner Leitor = new Scanner(System.in);
+        Scanner leitor = new Scanner(System.in);
         int enesimo;
         long anterior, atual,antigo;
         anterior = 0;
@@ -12,7 +12,7 @@ class Questao9
         antigo = 1;
 
         System.out.print("Digite um numero: ");
-        enesimo = Leitor.nextInt();
+        enesimo = leitor.nextInt();
 
         System.out.print(atual+" ");
 
@@ -24,6 +24,6 @@ class Questao9
             antigo = atual;
         }
 
-        Leitor.close();
+        leitor.close();
     }
 }

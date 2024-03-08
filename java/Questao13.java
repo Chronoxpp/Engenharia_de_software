@@ -4,13 +4,13 @@ class Questao13
 {
     public static void main(String[] args)
     {
-        Scanner Leitor = new Scanner(System.in);
+        Scanner leitor = new Scanner(System.in);
         int n1,n2,aux,quociente;
 
         System.out.print("insira um numero: ");
-        n1 = Leitor.nextInt();
+        n1 = leitor.nextInt();
         System.out.print("divido por ");
-        n2 = Leitor.nextInt();
+        n2 = leitor.nextInt();
 
         if(n1 >= n2)
         {
@@ -32,6 +32,6 @@ class Questao13
             }
 
         }
-        Leitor.close();
+        leitor.close();
     }
 }

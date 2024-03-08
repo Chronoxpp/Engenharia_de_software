@@ -4,7 +4,7 @@ class Questao5
 {
     public static void main(String[] argds)
     {
-        Scanner Leitor = new Scanner(System.in);
+        Scanner leitor = new Scanner(System.in);
         int v1,v2,resultado;
         boolean encerrar = false;
         //float resultado;
@@ -25,10 +25,10 @@ class Questao5
         while(encerrar == false)
         {
             System.out.print("Insira o primeiro numero: ");
-            v1 = Leitor.nextInt();
+            v1 = leitor.nextInt();
 
             System.out.print("Insira a operação: ");
-            operador = Leitor.next();
+            operador = leitor.next();
             if(operador.equalsIgnoreCase("sair"))
             {
                 encerrar = true;
@@ -36,7 +36,7 @@ class Questao5
             else
             {
                 System.out.print("Insira o segundo numero: ");
-                v2 = Leitor.nextInt();
+                v2 = leitor.nextInt();
 
 
                 if(operador.equals("+"))
@@ -104,6 +104,6 @@ class Questao5
             }
         }
 
-        Leitor.close();
+        leitor.close();
     }
 }
