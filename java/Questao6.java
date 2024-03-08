@@ -5,21 +5,16 @@ class Questao6
     public static void main(String[] args)
     {
         Scanner leitor = new Scanner(System.in);
-        int v1,resultado;
-        boolean parada;
-        parada = false;
+        int n1,i;
 
-        System.out.print("Digite um numero");
-        v1 = leitor.nextInt();
+        System.out.print("Digite um numero: ");
+        n1 = leitor.nextInt();
 
-        for(int i = 1;parada == false;i = i +1)
+        for(i = 1;(i*i) <= n1;i = i +1)
         {
-            resultado = i * i;
-            if(resultado > v1)
-            {
-                
-            }
         }
+        
+        System.out.print((i-1));
 
         leitor.close();
     }
