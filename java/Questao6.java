@@ -9,13 +9,12 @@ class Questao6
 
         System.out.print("Digite um numero: ");
         n1 = leitor.nextInt();
-
+        leitor.close();
+        
         for(i = 1;(i*i) <= n1;i = i +1)
         {
         }
-        
-        System.out.print((i-1));
 
-        leitor.close();
+        System.out.print((i-1));
     }
 }
