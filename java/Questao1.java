@@ -39,17 +39,6 @@ class Questao1
                 System.out.print(v3+" ");
                 System.out.print(v1+" ");
                 System.out.print(v2);
-                /*if(v3>v2)
-                {
-                    System.out.print(v3+" ");
-                    System.out.print(v2);
-                }
-                else
-                {
-                    System.out.print(v2+" ");
-                    System.out.print(v3);
-                }
-                */
             }
         }
         else
@@ -74,17 +63,6 @@ class Questao1
                 System.out.print(v3+" ");
                 System.out.print(v2+" ");
                 System.out.print(v1);
-
-                /* 
-                if(v3>v1)
-                {
-                    System.out.print(v3);
-                }
-                else
-                {
-                    System.out.println(v1);
-                }
-                */
             }
         }
 
