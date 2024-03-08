@@ -8,40 +8,52 @@ class Questao4
         int codigo;
         float vliquido,vbruto;
 
-        vbruto = 100;
+        System.out.print("Valor do produto: ");
+        vbruto = leitor.nextFloat();
 
-        System.out.println("Insira o codigo da forma de pagamento");
+        System.out.print("Codigo da forma de pagamento: ");
         codigo = leitor.nextInt();
 
-        if(codigo < 1 | codigo > 5)
+        if(codigo < 1 | codigo >= 5)
         {
             System.out.println("Invalido");
         }
-
-        if(codigo == 1) 
+        else
         {
-            vliquido = vbruto - ((vbruto/100)*10);
-            System.out.println("Valor final: "+vliquido);
+            if(codigo == 1) 
+            {
+                vliquido = vbruto - ((vbruto/100)*10);
+                System.out.println("Valor final: "+vliquido);
+            }
+            else
+            {
+                if(codigo == 2) 
+                {
+                    vliquido = vbruto - ((vbruto/100)*5);
+                    System.out.println("Valor final: "+vliquido);
+                }
+                else
+                {
+                    if(codigo == 3) 
+                    {
+                        vliquido = vbruto;
+                        System.out.println("Valor final: "+vliquido);
+                        System.out.println("Em 2x de "+(vliquido/2));
+                    }
+                    else 
+                    {
+                        if(codigo == 4)
+                        {
+                        vliquido = vbruto + ((vbruto/100)*10);
+                        System.out.println("Valor final: "+vliquido);
+                        System.out.println("Em 3x de "+(vliquido/3));
+                        }
+                    }                     
+                }
+            }
         }
-
-        if(codigo == 2) 
-        {
-            vliquido = vbruto - ((vbruto/100)*5);
-            System.out.println("Valor final: "+vliquido);
-        }
-
-        if(codigo == 3) 
-        {
-            vliquido = vbruto;
-            System.out.println("Valor final: "+vliquido);
-        }
-
-        if(codigo == 4) 
-        {
-            vliquido = vbruto + ((vbruto/100)*10);
-            System.out.println("Valor final: "+vliquido);
-        }
-
         leitor.close();
     }
 }
+
+
