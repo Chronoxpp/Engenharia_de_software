@@ -15,6 +15,6 @@ class Questao6
         {
         }
 
-        System.out.print((i-1));
+        System.out.print("Resultado: "+(i-1));
     }
 }
