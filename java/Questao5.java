@@ -28,6 +28,7 @@ class Questao5
 
             System.out.print("Insira a operação: ");
             operador = leitor.next();
+
             if(operador.equalsIgnoreCase("sair"))
             {
                 encerrar = true;
@@ -38,7 +39,6 @@ class Questao5
                 n2 = leitor.nextInt();
 
                 System.out.println("Resultado: "+(operacao(operador, n1, n2)));
-
                 n1 = 0;
                 n2 = 0;
                 operador = "";
@@ -77,6 +77,7 @@ class Questao5
                     {
                         if(operador.equalsIgnoreCase("r"))
                         {
+                            System.out.println("Atualmente são realizados apenas calculos de raizes quadradas!!");
                             return raiz(n1,n2);
                         }
                         else
@@ -121,13 +122,16 @@ class Questao5
     }
 
 
-    public static int raiz(int n1, int n2)
+    public static int raiz(int n1, int i)
     {
         int resultado = 0;
 
         if(n1>=0)
         {
-            System.out.println("Resultado: em desenvolvimento!");
+            for(i = 1;(i*i) <= n1;i = i +1)
+            {
+            }
+            resultado = (i-1);
         }
         else
         {
@@ -150,9 +154,11 @@ class Questao5
             resultado = n1;
             for(int i = 2;i<=n2;i = i + 1)
             {
-            resultado = resultado * n1;
+                resultado = resultado * n1;
             }    
         }
         return resultado;
     }
+
+
 }
