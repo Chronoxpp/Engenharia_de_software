@@ -3,7 +3,7 @@ class Questao15
     public static void main(String[] args)
     {
         int result = 0;
-        int numero = 2;
+        int numero = 7;
         for(int d1 = 1; d1 <= 6; d1 = d1 + 1)
         {
             for(int d2 = 1; d2 <= 6; d2 = d2 + 1)
