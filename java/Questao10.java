@@ -5,32 +5,31 @@ class Questao10
     public static void main(String[] args)
     {
         Scanner leitor = new Scanner(System.in);
-        float maior,menor,numeroAtual;
-        int numeros;
-        maior = 0;
-        menor = 0;
+        float maior,menor,atual;
+        int qtde;
 
         System.out.println("Quantos numeros você deseja comparar?");
-        numeros = leitor.nextInt();
+        qtde = leitor.nextInt();
 
-        for(int i = 1; i <= numeros;i = i +1)
+        System.out.print("Digite um numero: ");
+        atual = leitor.nextFloat();
+        maior = atual;
+        menor = atual;
+
+        if (qtde > 1)
         {
-            System.out.print("Digite um numero: ");
-            numeroAtual = leitor.nextFloat();
-            if(i == 1)
+            for(int i = 2; i <= qtde;i = i +1)
             {
-                maior = numeroAtual;
-                menor = numeroAtual;
-            }
-            else
-            {
-                if(numeroAtual > maior)
+                System.out.print("Digite um numero: ");
+                atual = leitor.nextFloat();
+
+                if(atual > maior)
                 {
-                    maior = numeroAtual;
+                    maior = atual;
                 }
-                if(numeroAtual < menor)
+                if(atual < menor)
                 {
-                    menor = numeroAtual;
+                    menor = atual;
                 }
             }
         }
