@@ -5,7 +5,7 @@ class Questao10
     public static void main(String[] args)
     {
         Scanner leitor = new Scanner(System.in);
-        float maior,menor,atual;
+        float maior,menor,numeroAtual;
         int numeros;
         maior = 0;
         menor = 0;
@@ -16,21 +16,21 @@ class Questao10
         for(int i = 1; i <= numeros;i = i +1)
         {
             System.out.print("Digite um numero: ");
-            atual = leitor.nextFloat();
+            numeroAtual = leitor.nextFloat();
             if(i == 1)
             {
-                maior = atual;
-                menor = atual;
+                maior = numeroAtual;
+                menor = numeroAtual;
             }
             else
             {
-                if(atual > maior)
+                if(numeroAtual > maior)
                 {
-                    maior = atual;
+                    maior = numeroAtual;
                 }
-                if(atual < menor)
+                if(numeroAtual < menor)
                 {
-                    menor = atual;
+                    menor = numeroAtual;
                 }
             }
         }
