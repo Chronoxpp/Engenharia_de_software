@@ -38,8 +38,16 @@ class NumeroVampiro
                 }
                 aux = aux/10;
             }
-            System.out.println("acabou "+strCombinacao1);
-            System.out.println("acabou "+strCombinacao2);
+
+            combinacao1 = Integer.parseInt(strCombinacao1);
+            combinacao2 = Integer.parseInt(strCombinacao2);
+            if(combinacao1 * combinacao2 == possivelVampiro)
+            {
+                System.out.print("É um numero vampiro");
+            }
+            else
+            {
+            }
         }
 
         leitor.close();
