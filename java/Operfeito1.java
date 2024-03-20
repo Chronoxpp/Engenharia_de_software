@@ -3,30 +3,31 @@ class Operfeito1
     public static void main(String[] args) 
     {
         //declaro as variaveis e atribuo valores
-        int perfeitos, numeatual,i,verificador,encontrar;
-        encontrar = 10;
-        perfeitos = 0;
-        numeatual = 2;
+        int perfeitosDescobertos, numeroAtual,somaDosDivisores,quantidadeDePerfeitosProcurados;
+        quantidadeDePerfeitosProcurados = 10;
+        perfeitosDescobertos = 0;
+        numeroAtual = 2;
 
         //
         do
         {
-            verificador = 0;
-            for(i = 1;i<=(numeatual/2);i = i+1)
+            somaDosDivisores = 0;
+            for(int i = 1;i<=(numeroAtual/2);i = i+1)
             {   
-                if((numeatual%i) == 0)
+                if((numeroAtual%i) == 0)
                 {
-                    verificador = verificador + i;
+                    somaDosDivisores = somaDosDivisores + i;
                 }
             }
-            if (verificador == numeatual)
+
+            if (somaDosDivisores == numeroAtual)
             {
-                perfeitos = perfeitos + 1;
-                System.out.println(numeatual);
+                perfeitosDescobertos = perfeitosDescobertos + 1;
+                System.out.println(numeroAtual);
             }
-            numeatual = numeatual+2;
-            //System.out.println(numeatual); não se umporte com essa linha
-        }while(perfeitos < encontrar);
+
+            numeroAtual = numeroAtual+2;
+        }while(perfeitosDescobertos < quantidadeDePerfeitosProcurados);
         
         System.out.println("Acabou");
     }
