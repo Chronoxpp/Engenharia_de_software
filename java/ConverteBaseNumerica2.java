@@ -2,29 +2,13 @@ class ConverteBaseNumerica2
 {
     public static void main(String[] args)
     {
-        int numerosNaBaseDecimal[] = new int[256];
-        String numerosNaBaseBinario[] = new String[256];
-        int abc2 = 0;
-        String abc = "0101";
+        int[] numerosNaBaseDecimal = new int[256];
+        numerosNaBaseDecimal = preencherVetordecimal(numerosNaBaseDecimal);
 
-        //preencher o vetor decimal;
-        //converter decimal para binario
-        //converter decimal para octal
-        //converter decimal para hexadecimal
+        int[] numerosNaBaseBinario;
+        numerosNaBaseBinario=converterArrayDecimalParaBinario(numerosNaBaseDecimal);
 
-        preencherVetordecimal(numerosNaBaseDecimal);
-        
-        for(int numeroDecimal : numerosNaBaseDecimal)
-        {
-            numerosNaBaseBinario[numeroDecimal] = converterParaBinario(numeroDecimal);
-        }
-
-        for(int numeroDecimal : numerosNaBaseDecimal)
-        {
-            //numerosNaBaseBinario[numeroDecimal] = inverterNumeroInteiro(numerosNaBaseBinario[numeroDecimal]);  
-        }
-
-        for(String i : numerosNaBaseBinario){System.out.println(i);}
+        for(int i : numerosNaBaseBinario){System.out.println(i);}
     }
 
     public static int[] preencherVetordecimal(int[] vetorDecimal)
@@ -36,39 +20,36 @@ class ConverteBaseNumerica2
 
         return vetorDecimal;
     }
-
     
-    public static String converterParaBinario(int decimal)
+    public static int[] converterArrayDecimalParaBinario(int[] vetorDecimal)
     {
-        String resto = "";
-        int numeroBinario = 0;
-        if(decimal < 2)
+        int[] vetorBinario = new int[vetorDecimal.length];
+        for(int numeroDecimal : vetorDecimal)
         {
-            resto = Integer.toString(decimal);
-            return resto;
+            vetorBinario[numeroDecimal] = converterNumeroNaBaseDesejada(numeroDecimal,2);
+        }
+
+        return vetorBinario;
+    }
+    
+    public static int converterNumeroNaBaseDesejada(int decimal, int baseNumerica)
+    {
+        String numeroBinario = "";
+
+        if(decimal < baseNumerica)
+        {
+            return decimal;
         }
         else
         {
-            while(decimal >=2)
+            while(decimal >=baseNumerica)
             {
-                resto = resto + Integer.toString(decimal%2);
-                //numeroBinario = (numeroBinario*10)+decimal%2;
-                decimal = decimal/2;
+                numeroBinario = numeroBinario + Integer.toString(decimal%baseNumerica);
+                decimal = decimal/baseNumerica;
             }
-            resto = resto + Integer.toString(decimal);
-            //numeroBinario = (numeroBinario*10)+decimal;
+            numeroBinario = numeroBinario + Integer.toString(decimal);
         }
-
-        String[] restoA = resto.split("");
-        String[] retorno = new String[resto.length()];
-        int x = 0;
-        resto = "";
-        for(int i = (restoA.length)-1; i >= 0; i = i-1)
-        {
-            resto = resto + restoA[i];
-        }
-
-        return resto;
+        return  inverterNumeroInteiro(numeroBinario);
     }
 /* 
     public static int converterParaOctal(int numero)
@@ -82,16 +63,14 @@ class ConverteBaseNumerica2
     }
 */
 
-    public static int inverterNumeroInteiro(int numeroQualquer)
+    public static int inverterNumeroInteiro(String numeroQualquer)
     {
-        int numeroInvertido = 0;
-        while(numeroQualquer != 0)
+        String[] binarioQuebrado = numeroQualquer.split("");
+        numeroQualquer = "";
+        for(int i = (binarioQuebrado.length)-1; i >= 0; i = i-1)
         {
-            numeroInvertido = (numeroInvertido*10) + numeroQualquer%10;
-            numeroQualquer = numeroQualquer/10;
+            numeroQualquer = numeroQualquer + binarioQuebrado[i];
         }
-
-        return numeroInvertido;
+        return  Integer.parseInt(numeroQualquer);
     }
-
-}
+} 
