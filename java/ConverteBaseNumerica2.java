@@ -49,7 +49,7 @@ class ConverteBaseNumerica2
             }
             numeroBinario = numeroBinario + Integer.toString(decimal);
         }
-        return  inverterNumeroInteiro(numeroBinario);
+        return  Integer.parseInt(inverterValorQualquer(numeroBinario));
     }
 /* 
     public static int converterParaOctal(int numero)
@@ -63,14 +63,14 @@ class ConverteBaseNumerica2
     }
 */
 
-    public static int inverterNumeroInteiro(String numeroQualquer)
+    public static String inverterValorQualquer(String valorQualquer)
     {
-        String[] binarioQuebrado = numeroQualquer.split("");
-        numeroQualquer = "";
-        for(int i = (binarioQuebrado.length)-1; i >= 0; i = i-1)
+        String[] valorQuebrado = valorQualquer.split("");
+        valorQualquer = "";
+        for(int i = (valorQuebrado.length)-1; i >= 0; i = i-1)
         {
-            numeroQualquer = numeroQualquer + binarioQuebrado[i];
+            valorQualquer = valorQualquer + valorQuebrado[i];
         }
-        return  Integer.parseInt(numeroQualquer);
+        return  valorQualquer;
     }
 } 
