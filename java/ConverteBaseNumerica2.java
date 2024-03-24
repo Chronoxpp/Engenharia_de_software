@@ -8,7 +8,14 @@ class ConverteBaseNumerica2
         int[] numerosNaBaseBinario;
         numerosNaBaseBinario=converterArrayDecimalParaBinario(numerosNaBaseDecimal);
 
-        for(int i : numerosNaBaseBinario){System.out.println(i);}
+        int[] numerosNaBaseOctal;
+        numerosNaBaseOctal = converterArrayDecimalParaOctal(numerosNaBaseDecimal);
+
+        for(int i = 0; i <= (numerosNaBaseDecimal.length) - 1;i = i +1)
+        {
+            System.out.println(numerosNaBaseBinario[i]);
+            System.out.println(numerosNaBaseOctal[i]);
+        }
     }
 
     public static int[] preencherVetordecimal(int[] vetorDecimal)
@@ -22,6 +29,28 @@ class ConverteBaseNumerica2
     }
     
     public static int[] converterArrayDecimalParaBinario(int[] vetorDecimal)
+    {
+        int[] vetorBinario = new int[vetorDecimal.length];
+        for(int numeroDecimal : vetorDecimal)
+        {
+            vetorBinario[numeroDecimal] = converterNumeroNaBaseDesejada(numeroDecimal,2);
+        }
+
+        return vetorBinario;
+    }
+
+    public static int[] converterArrayDecimalParaOctal(int[] vetorDecimal)
+    {
+        int[] vetorBinario = new int[vetorDecimal.length];
+        for(int numeroDecimal : vetorDecimal)
+        {
+            vetorBinario[numeroDecimal] = converterNumeroNaBaseDesejada(numeroDecimal,8);
+        }
+
+        return vetorBinario;
+    }
+
+    public static int[] converterArrayDecimalParaHexadecimal(int[] vetorDecimal)
     {
         int[] vetorBinario = new int[vetorDecimal.length];
         for(int numeroDecimal : vetorDecimal)
