@@ -11,10 +11,12 @@ class ConverteBaseNumerica2
         int[] numerosNaBaseOctal;
         numerosNaBaseOctal = converterArrayDecimalParaOctal(numerosNaBaseDecimal);
 
+        String[] numerosNaBaseHexadecimal;
+        numerosNaBaseHexadecimal = converterArrayDecimalParaHexadecimal(numerosNaBaseDecimal);
+
         for(int i = 0; i <= (numerosNaBaseDecimal.length) - 1;i = i +1)
         {
-            System.out.println(numerosNaBaseBinario[i]);
-            System.out.println(numerosNaBaseOctal[i]);
+            System.out.println("D: "+numerosNaBaseDecimal[i]+"   "+"B: "+numerosNaBaseBinario[i]+"   "+"O: "+numerosNaBaseOctal[i]+"   "+"H: "+numerosNaBaseHexadecimal[i]);
         }
     }
 
@@ -33,7 +35,7 @@ class ConverteBaseNumerica2
         int[] vetorBinario = new int[vetorDecimal.length];
         for(int numeroDecimal : vetorDecimal)
         {
-            vetorBinario[numeroDecimal] = converterNumeroNaBaseDesejada(numeroDecimal,2);
+            vetorBinario[numeroDecimal] = Integer.parseInt(converterNumeroNaBaseDesejada(numeroDecimal,2));
         }
 
         return vetorBinario;
@@ -44,7 +46,7 @@ class ConverteBaseNumerica2
         int[] vetorOctal = new int[vetorDecimal.length];
         for(int numeroDecimal : vetorDecimal)
         {
-            vetorOctal[numeroDecimal] = converterNumeroNaBaseDesejada(numeroDecimal,8);
+            vetorOctal[numeroDecimal] = Integer.parseInt(converterNumeroNaBaseDesejada(numeroDecimal,8));
         }
 
         return vetorOctal;
@@ -52,34 +54,57 @@ class ConverteBaseNumerica2
 
     public static String[] converterArrayDecimalParaHexadecimal(int[] vetorDecimal)
     {
-        int numeroHexadecimal = 0;
         String[] vetorHexadecimal = new String[vetorDecimal.length];
         for(int numeroDecimal : vetorDecimal)
         {
-            numeroHexadecimal = converterNumeroNaBaseDesejada(numeroDecimal,16);
+            vetorHexadecimal[numeroDecimal] = converterNumeroNaBaseDesejada(numeroDecimal,16);
         }
 
         return vetorHexadecimal;
     }
     
-    public static int converterNumeroNaBaseDesejada(int decimal, int baseNumerica)
+    public static String converterNumeroNaBaseDesejada(int decimal, int baseNumerica)
     {
-        String numeroBinario = "";
+        String numeroNaBaseDesejada = "";
 
         if(decimal < baseNumerica)
         {
-            return decimal;
+            if(baseNumerica == 16)
+            {
+                return converterParaAlgarismoHexadecimal(decimal);
+            }
+            else
+            {
+                return Integer.toString(decimal);
+            }
         }
         else
         {
             while(decimal >=baseNumerica)
             {
-                numeroBinario = numeroBinario + Integer.toString(decimal%baseNumerica);
-                decimal = decimal/baseNumerica;
+                if(baseNumerica == 16)
+                {
+                    numeroNaBaseDesejada = numeroNaBaseDesejada + converterParaAlgarismoHexadecimal(decimal%baseNumerica);
+                    decimal = decimal/baseNumerica;
+                }
+                else
+                {
+                    numeroNaBaseDesejada = numeroNaBaseDesejada + Integer.toString(decimal%baseNumerica);
+                    decimal = decimal/baseNumerica;
+                }
+
             }
-            numeroBinario = numeroBinario + Integer.toString(decimal);
+            if(baseNumerica == 16)
+            {
+                numeroNaBaseDesejada = numeroNaBaseDesejada + converterParaAlgarismoHexadecimal(decimal);
+            }
+            else
+            {
+                numeroNaBaseDesejada = numeroNaBaseDesejada + Integer.toString(decimal);
+            }
+            
         }
-        return  Integer.parseInt(inverterValorQualquer(numeroBinario));
+        return  (inverterValorQualquer(numeroNaBaseDesejada));
     }
 
     public static String inverterValorQualquer(String valorQualquer)
@@ -93,27 +118,24 @@ class ConverteBaseNumerica2
         return  valorQualquer;
     }
 
-    public static String tratarUsoDeLetrasEmBaseHexadecimal(int numeroHexadecimal)
+    public static String converterParaAlgarismoHexadecimal(int numeroHexadecimal)
     {
         switch (numeroHexadecimal)
         {
             case (10):
                 return "A";
             case (11):
-                break;
+                return "B";
             case (12):
-                break;
+                return "C";
             case (13):
-                break;
+                return "D";
             case (14):
-                break;
+                return "E";
             case (15):
-                break;
-            case (16):
-                break;
+                return "F";
             default:
-
+                return Integer.toString(numeroHexadecimal);
         }
     }
-    
 } 
