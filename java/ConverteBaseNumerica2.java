@@ -14,10 +14,7 @@ class ConverteBaseNumerica2
         String[] numerosNaBaseHexadecimal;
         numerosNaBaseHexadecimal = converterArrayDecimalParaHexadecimal(numerosNaBaseDecimal);
 
-        for(int i = 0; i <= (numerosNaBaseDecimal.length) - 1;i = i +1)
-        {
-            System.out.println("D: "+numerosNaBaseDecimal[i]+"   "+"B: "+numerosNaBaseBinario[i]+"   "+"O: "+numerosNaBaseOctal[i]+"   "+"H: "+numerosNaBaseHexadecimal[i]);
-        }
+        exibirDadosDosVetores(numerosNaBaseDecimal,numerosNaBaseBinario,numerosNaBaseOctal,numerosNaBaseHexadecimal);
     }
 
     public static int[] preencherVetordecimal(int[] vetorDecimal)
@@ -136,6 +133,14 @@ class ConverteBaseNumerica2
                 return "F";
             default:
                 return Integer.toString(numeroHexadecimal);
+        }
+    }
+
+    public static void exibirDadosDosVetores(int[] vetorDecimal,int[] vetorBinario,int[] vetorOctal,String[] vetorHexadecimal)
+    {
+        for(int i = 0; i <= (vetorDecimal.length) - 1;i = i +1)
+        {
+            System.out.println("D: "+vetorDecimal[i]+"   "+"B: "+vetorBinario[i]+"   "+"O: "+vetorOctal[i]+"   "+"H: "+vetorHexadecimal[i]);
         }
     }
 } 
