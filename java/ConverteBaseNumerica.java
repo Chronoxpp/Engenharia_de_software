@@ -2,63 +2,145 @@ class ConverteBaseNumerica
 {
     public static void main(String[] args)
     {
-        int numerosNaBaseDecimal[] = new int[256];
-        String numerosNaBaseBinario[] = new String[256];
+        int[] numerosNaBaseDecimal = new int[256];
+        numerosNaBaseDecimal = preencherVetordecimal(numerosNaBaseDecimal);
 
-        //preencher o vetor decimal;
-        //converter decimal para binario
-        //converter decimal para octal
-        //converter decimal para hexadecimal
+        int[] numerosNaBaseBinario;
+        numerosNaBaseBinario=converterArrayDecimalParaBinario(numerosNaBaseDecimal);
 
+        int[] numerosNaBaseOctal;
+        numerosNaBaseOctal = converterArrayDecimalParaOctal(numerosNaBaseDecimal);
 
-        for(int i = 0; i < numerosNaBaseDecimal.length; i = i+1)
+        String[] numerosNaBaseHexadecimal;
+        numerosNaBaseHexadecimal = converterArrayDecimalParaHexadecimal(numerosNaBaseDecimal);
+
+        exibirDadosDosVetores(numerosNaBaseDecimal,numerosNaBaseBinario,numerosNaBaseOctal,numerosNaBaseHexadecimal);
+    }
+
+    public static int[] preencherVetordecimal(int[] vetorDecimal)
+    {
+        for(int i = 0; i <= (vetorDecimal.length)-1; i = i+1)
         {
-            numerosNaBaseDecimal[i] = i;
+            vetorDecimal[i] = i;
         }
 
-        for(int numeroDecimal : numerosNaBaseDecimal)
+        return vetorDecimal;
+    }
+    
+    public static int[] converterArrayDecimalParaBinario(int[] vetorDecimal)
+    {
+        int[] vetorBinario = new int[vetorDecimal.length];
+        for(int numeroDecimal : vetorDecimal)
         {
-            String resto = "";
-            boolean fim = false;
-            int aux = numeroDecimal;
+            vetorBinario[numeroDecimal] = Integer.parseInt(converterNumeroNaBaseDesejada(numeroDecimal,2));
+        }
 
-            while (fim == false) 
+        return vetorBinario;
+    }
+
+    public static int[] converterArrayDecimalParaOctal(int[] vetorDecimal)
+    {
+        int[] vetorOctal = new int[vetorDecimal.length];
+        for(int numeroDecimal : vetorDecimal)
+        {
+            vetorOctal[numeroDecimal] = Integer.parseInt(converterNumeroNaBaseDesejada(numeroDecimal,8));
+        }
+
+        return vetorOctal;
+    }
+
+    public static String[] converterArrayDecimalParaHexadecimal(int[] vetorDecimal)
+    {
+        String[] vetorHexadecimal = new String[vetorDecimal.length];
+        for(int numeroDecimal : vetorDecimal)
+        {
+            vetorHexadecimal[numeroDecimal] = converterNumeroNaBaseDesejada(numeroDecimal,16);
+        }
+
+        return vetorHexadecimal;
+    }
+    
+    public static String converterNumeroNaBaseDesejada(int decimal, int baseNumerica)
+    {
+        String numeroNaBaseDesejada = "";
+
+        if(decimal < baseNumerica)
+        {
+            if(baseNumerica == 16)
             {
-                if(aux < 2)
+                return converterParaAlgarismoHexadecimal(decimal);
+            }
+            else
+            {
+                return Integer.toString(decimal);
+            }
+        }
+        else
+        {
+            while(decimal >=baseNumerica)
+            {
+                if(baseNumerica == 16)
                 {
-                    if(resto.equals(""))
-                    {
-                        resto = Integer.toString(aux);
-                        numerosNaBaseBinario[numeroDecimal] = resto;
-                        fim = true;
-                    }
-                    else
-                    {
-                        resto = resto + Integer.toString(aux);
-                        numerosNaBaseBinario[numeroDecimal] = resto;
-                        fim = true;
-                    }
+                    numeroNaBaseDesejada = numeroNaBaseDesejada + converterParaAlgarismoHexadecimal(decimal%baseNumerica);
+                    decimal = decimal/baseNumerica;
                 }
                 else
                 {
-                    if(resto.equals(""))
-                    {
-                        resto = Integer.toString(aux%2);
-                        aux = (aux/2);
-                    }
-                    else
-                    {
-                        resto = resto + Integer.toString(aux%2);
-                        aux = (aux/2);
-                    }
+                    numeroNaBaseDesejada = numeroNaBaseDesejada + Integer.toString(decimal%baseNumerica);
+                    decimal = decimal/baseNumerica;
                 }
-                //se menor entt usa
-                //se maior ou igual entt divide e usa resto
-                //repete até ser menor
+
             }
+            if(baseNumerica == 16)
+            {
+                numeroNaBaseDesejada = numeroNaBaseDesejada + converterParaAlgarismoHexadecimal(decimal);
+            }
+            else
+            {
+                numeroNaBaseDesejada = numeroNaBaseDesejada + Integer.toString(decimal);
+            }
+            
         }
-
-        for(String i : numerosNaBaseBinario){System.out.println(i);}
+        return  (inverterValorQualquer(numeroNaBaseDesejada));
     }
-}
 
+    public static String inverterValorQualquer(String valorQualquer)
+    {
+        String[] valorQuebrado = valorQualquer.split("");
+        valorQualquer = "";
+        for(int i = (valorQuebrado.length)-1; i >= 0; i = i-1)
+        {
+            valorQualquer = valorQualquer + valorQuebrado[i];
+        }
+        return  valorQualquer;
+    }
+
+    public static String converterParaAlgarismoHexadecimal(int numeroHexadecimal)
+    {
+        switch (numeroHexadecimal)
+        {
+            case (10):
+                return "A";
+            case (11):
+                return "B";
+            case (12):
+                return "C";
+            case (13):
+                return "D";
+            case (14):
+                return "E";
+            case (15):
+                return "F";
+            default:
+                return Integer.toString(numeroHexadecimal);
+        }
+    }
+
+    public static void exibirDadosDosVetores(int[] vetorDecimal,int[] vetorBinario,int[] vetorOctal,String[] vetorHexadecimal)
+    {
+        for(int i = 0; i <= (vetorDecimal.length) - 1;i = i +1)
+        {
+            System.out.println("D: "+vetorDecimal[i]+"   "+"B: "+vetorBinario[i]+"   "+"O: "+vetorOctal[i]+"   "+"H: "+vetorHexadecimal[i]);
+        }
+    }
+} 
