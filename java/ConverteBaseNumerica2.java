@@ -41,24 +41,25 @@ class ConverteBaseNumerica2
 
     public static int[] converterArrayDecimalParaOctal(int[] vetorDecimal)
     {
-        int[] vetorBinario = new int[vetorDecimal.length];
+        int[] vetorOctal = new int[vetorDecimal.length];
         for(int numeroDecimal : vetorDecimal)
         {
-            vetorBinario[numeroDecimal] = converterNumeroNaBaseDesejada(numeroDecimal,8);
+            vetorOctal[numeroDecimal] = converterNumeroNaBaseDesejada(numeroDecimal,8);
         }
 
-        return vetorBinario;
+        return vetorOctal;
     }
 
-    public static int[] converterArrayDecimalParaHexadecimal(int[] vetorDecimal)
+    public static String[] converterArrayDecimalParaHexadecimal(int[] vetorDecimal)
     {
-        int[] vetorBinario = new int[vetorDecimal.length];
+        int numeroHexadecimal = 0;
+        String[] vetorHexadecimal = new String[vetorDecimal.length];
         for(int numeroDecimal : vetorDecimal)
         {
-            vetorBinario[numeroDecimal] = converterNumeroNaBaseDesejada(numeroDecimal,2);
+            numeroHexadecimal = converterNumeroNaBaseDesejada(numeroDecimal,16);
         }
 
-        return vetorBinario;
+        return vetorHexadecimal;
     }
     
     public static int converterNumeroNaBaseDesejada(int decimal, int baseNumerica)
@@ -80,17 +81,6 @@ class ConverteBaseNumerica2
         }
         return  Integer.parseInt(inverterValorQualquer(numeroBinario));
     }
-/* 
-    public static int converterParaOctal(int numero)
-    {
-
-    }
-
-    public static int converterParaHexadecimal(int numero)
-    {
-
-    }
-*/
 
     public static String inverterValorQualquer(String valorQualquer)
     {
@@ -102,4 +92,28 @@ class ConverteBaseNumerica2
         }
         return  valorQualquer;
     }
+
+    public static String tratarUsoDeLetrasEmBaseHexadecimal(int numeroHexadecimal)
+    {
+        switch (numeroHexadecimal)
+        {
+            case (10):
+                return "A";
+            case (11):
+                break;
+            case (12):
+                break;
+            case (13):
+                break;
+            case (14):
+                break;
+            case (15):
+                break;
+            case (16):
+                break;
+            default:
+
+        }
+    }
+    
 } 
