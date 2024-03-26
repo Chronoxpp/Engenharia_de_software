@@ -16,7 +16,7 @@ def converterParaAlgarismoHexadecimal(numeroHexadecimal):
     
 def inverterValorQualquer(valorQualquer = []):
     valorInvertido = ""
-    for i in range((len(valorQualquer)-1),0,-1):
+    for i in range((len(valorQualquer)-1),-1,-1):
         valorInvertido = valorInvertido + str(valorQualquer[i])
     
     return valorInvertido
@@ -57,6 +57,20 @@ def converterArrayDecimalParaBinario(vetorDecimal = []):
         vetorBinario.append(converterNumeroNaBaseDesejada(numeroDecimal,2))
     
     return vetorBinario
+
+def converterArrayDecimalParaOctal(vetorDecimal = []):
+    vetorOctal = []
+    for numeroDecimal in vetorDecimal:
+        vetorOctal.append(converterNumeroNaBaseDesejada(numeroDecimal,8))
+
+    return vetorOctal
+
+def converterArrayDecimalParaHexadecimal(vetorDecimal):
+    vetorHexadecimal = []
+    for numeroDecimal in vetorDecimal:
+        vetorHexadecimal.append(converterNumeroNaBaseDesejada(numeroDecimal,16))
+
+    return vetorHexadecimal
         
 def exibirDadosDosVetores(vetor = []):
     for i in range(0,256):
@@ -69,4 +83,10 @@ numerosNaBaseDecimal = preencherVetorDecimal(numerosNaBaseDecimal)
 numerosNaBaseBinario = []
 numerosNaBaseBinario = converterArrayDecimalParaBinario(numerosNaBaseDecimal)
 
-exibirDadosDosVetores(numerosNaBaseBinario)
+numerosNaBaseOctal = []
+numerosNaBaseOctal = converterArrayDecimalParaOctal(numerosNaBaseDecimal)
+
+numerosNaBaseHexadecimal = []
+numerosNaBaseHexadecimal = converterArrayDecimalParaHexadecimal(numerosNaBaseDecimal)
+
+exibirDadosDosVetores(numerosNaBaseHexadecimal)
