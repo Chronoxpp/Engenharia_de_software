@@ -72,9 +72,9 @@ def converterArrayDecimalParaHexadecimal(vetorDecimal):
 
     return vetorHexadecimal
         
-def exibirDadosDosVetores(vetor = []):
+def exibirDadosDosVetores(vetorDecimal =[],vetorBinario =[],vetorOctal =[],vetorHexadecimal =[]):
     for i in range(0,256):
-        print(vetor[i])
+        print("D:",vetorDecimal[i]," ","B:",vetorBinario[i]," ","O:",vetorOctal[i]," ","H:",vetorHexadecimal[i])
 
 
 numerosNaBaseDecimal = []
@@ -89,4 +89,4 @@ numerosNaBaseOctal = converterArrayDecimalParaOctal(numerosNaBaseDecimal)
 numerosNaBaseHexadecimal = []
 numerosNaBaseHexadecimal = converterArrayDecimalParaHexadecimal(numerosNaBaseDecimal)
 
-exibirDadosDosVetores(numerosNaBaseHexadecimal)
+exibirDadosDosVetores(numerosNaBaseDecimal,numerosNaBaseBinario,numerosNaBaseOctal,numerosNaBaseHexadecimal)
