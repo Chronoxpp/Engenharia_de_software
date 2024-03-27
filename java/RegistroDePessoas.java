@@ -35,25 +35,46 @@ class RegistroDePessoas
                         System.out.println("Não há espaço disponivel!");
                     }
                     break;
+
                 case 2:
+                    System.out.print("Registro que será excluido: ");
+                    int registroEscolhido = leitor.nextInt();
+
+                    if(nomesDasPessoas[registroEscolhido] != null)
+                    {
+                        excluirRegistroDoVetor(nomesDasPessoas, idadeDasPessoas, alturaDasPessoas, registroEscolhido);
+                        System.out.println("Registro excluido");
+                    }
+                    else
+                    {
+                        System.out.println(" ");
+                        System.out.println("Esse registro ainda não existe!");
+                    }
+
                     break;
+
                 case 3:
                     listarDadosRegistrados(nomesDasPessoas, idadeDasPessoas, alturaDasPessoas);
                     break;
+
                 case 4:
                     break;
+
                 case 5:
                     System.out.println("Programa encerrado...");
                     continuar = false;
                     break;
+                    
                 default:
                     System.out.println("Opção invalida!");
             }
             System.out.println(" ");
         }
-
         leitor.close(); 
     }
+
+
+
 
     public static int checarEspacoDisponivelString(String[] vetor)
     {
@@ -116,4 +137,10 @@ class RegistroDePessoas
         }
     }
 
+    public static void excluirRegistroDoVetor(String[] vetorNomes,int[] vetorIdades,double[] vetorAlturas,int registroEscolhido)
+    {
+        vetorNomes[registroEscolhido] = null;
+        vetorIdades[registroEscolhido] = 0;
+        vetorAlturas[registroEscolhido] = 0.0;
+    }
 }
