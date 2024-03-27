@@ -19,9 +19,11 @@ class RegistroDePessoas
             System.out.println("5 - Sair");
             System.out.print("Opção escolhida: ");
             int opcaoEscolhida = leitor.nextInt();
-
+            
+            System.out.println(" ");
             switch(opcaoEscolhida)
-            {
+            {   
+                
                 case 1:
                     int posicaoSemValor = checarEspacoDisponivelString(nomesDasPessoas);
                     if(posicaoSemValor != -1)
