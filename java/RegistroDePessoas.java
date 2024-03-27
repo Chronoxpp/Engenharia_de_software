@@ -38,6 +38,7 @@ class RegistroDePessoas
                 case 2:
                     break;
                 case 3:
+                    listarDadosRegistrados(nomesDasPessoas, idadeDasPessoas, alturaDasPessoas);
                     break;
                 case 4:
                     break;
@@ -48,10 +49,22 @@ class RegistroDePessoas
                 default:
                     System.out.println("Opção invalida!");
             }
-            System.out.println("");
+            System.out.println(" ");
         }
 
         leitor.close(); 
+    }
+
+    public static int checarEspacoDisponivelString(String[] vetor)
+    {
+        for(int i = 0; i <= 9; i = i+1)
+        {
+            if(vetor[i] == null)
+            {
+                return i;
+            }
+        }
+        return -1;
     }
 
     public static String registrarNome(String[] vetorNomes,int espacoDisponivel)
@@ -84,15 +97,23 @@ class RegistroDePessoas
         return alturaInserida;
     }
 
-    public static int checarEspacoDisponivelString(String[] vetor)
+    public static void listarDadosRegistrados(String[] vetorNomes,int[] vetorIdades,double[] vetorAlturas)
     {
-        for(int i = 0; i <= 9; i = i+1)
+        for (int i = 0; i <= 9; i = i + 1)
         {
-            if(vetor[i] == null)
+            if (vetorNomes[i] != null)
             {
-                return i;
+                if(!vetorNomes[i].equals(""))
+                {
+                    System.out.println("Registro["+i+"]");
+                    System.out.print("nome:"+vetorNomes[i]+"  ");
+                    System.out.print("idade:"+vetorIdades[i]+"  ");
+                    System.out.print("altura:"+vetorAlturas[i]);
+                    System.out.println(" ");
+                    System.out.println(" ");
+                }
             }
         }
-        return -1;
     }
+
 }
