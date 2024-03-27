@@ -7,7 +7,7 @@ class Teste
         a[1] = "Vindo";
         a[3] = "";
 
-        if(a[2].length() == 0)
+        if(a[2] != null | a[3].equals(""))
         {
             System.out.println("Funcionou!");
             System.out.print(a[3].length());
