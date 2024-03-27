@@ -31,6 +31,7 @@ class RegistroDePessoas
                         nomesDasPessoas[posicaoSemValor] = registrarNome(nomesDasPessoas, posicaoSemValor);
                         idadeDasPessoas[posicaoSemValor] = registrarIdade(idadeDasPessoas, posicaoSemValor);
                         alturaDasPessoas[posicaoSemValor] = registrarAltura(alturaDasPessoas, posicaoSemValor);
+                        nomesDasPessoas = organizarVetor(nomesDasPessoas);
                     }
                     else
                     {
@@ -46,6 +47,7 @@ class RegistroDePessoas
                     {
                         excluirRegistroDoVetor(nomesDasPessoas, idadeDasPessoas, alturaDasPessoas, registroEscolhido);
                         System.out.println("Registro excluido");
+                        nomesDasPessoas = organizarVetor(nomesDasPessoas);
                     }
                     else
                     {
@@ -77,6 +79,20 @@ class RegistroDePessoas
 
 
 
+
+    public static String[] organizarVetor(String[] vetorQualquer)
+    {
+        for (int i = 0; i <= 8; i = i + 1){
+            for (int j = 0; j < 9 - i; j = j + 1) {
+                if (vetorQualquer[j] == null & vetorQualquer[j+1] != null){
+                    String aux = vetorQualquer[j];
+                    vetorQualquer[j] = vetorQualquer[j+1];
+                    vetorQualquer[j+1] = aux;
+                }
+            }
+        }
+        return vetorQualquer;
+    }
 
     public static int checarEspacoDisponivelString(String[] vetor)
     {
