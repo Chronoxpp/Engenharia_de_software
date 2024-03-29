@@ -28,10 +28,8 @@ class RegistroDePessoas
                     int posicaoSemValor = checarEspacoDisponivelString(nomesDasPessoas);
                     if(posicaoSemValor != -1)
                     {
-                        nomesDasPessoas[posicaoSemValor] = registrarNome(nomesDasPessoas, posicaoSemValor);
-                        idadeDasPessoas[posicaoSemValor] = registrarIdade(idadeDasPessoas, posicaoSemValor);
-                        alturaDasPessoas[posicaoSemValor] = registrarAltura(alturaDasPessoas, posicaoSemValor);
-                        nomesDasPessoas = organizarVetorDeNomes(nomesDasPessoas);
+                        registrarPessoa(nomesDasPessoas, idadeDasPessoas, alturaDasPessoas, posicaoSemValor, leitor);
+                        organizarVetorDeNomes(nomesDasPessoas, idadeDasPessoas, alturaDasPessoas);
                         
                     }
                     else
@@ -48,7 +46,7 @@ class RegistroDePessoas
                     {
                         excluirRegistroDoVetor(nomesDasPessoas, idadeDasPessoas, alturaDasPessoas, registroEscolhido);
                         System.out.println("Registro excluido");
-                        nomesDasPessoas = organizarVetorDeNomes(nomesDasPessoas);
+                        organizarVetorDeNomes(nomesDasPessoas, idadeDasPessoas, alturaDasPessoas);
                     }
                     else
                     {
@@ -78,21 +76,54 @@ class RegistroDePessoas
         leitor.close(); 
     }
 
+    public static void registrarPessoa(String[] nomesDasPessoas,int []idadeDasPessoas,double[] alturaDasPessoas,int espacoDisponivel,Scanner leitor)
+    {
+        String nomeInserido;
+        int idadeInserida;
+        double alturaInserida;
 
+        do
+        {
+            System.out.print("Insira o nome: ");
+            nomeInserido = leitor.next();
+        }while(nomeInserido.equals(""));
+        nomesDasPessoas[espacoDisponivel] = nomeInserido;
 
+        do
+        {
+            System.out.print("Insira a idade: ");
+            idadeInserida = leitor.nextInt();
+        }while(idadeInserida == 0);
+        idadeDasPessoas[espacoDisponivel] = idadeInserida;
 
-    public static String[] organizarVetorDeNomes(String[] vetorQualquer)
+        do
+        {
+            System.out.print("Insira a altura: ");
+            alturaInserida = leitor.nextDouble();
+        }while(alturaInserida == 0);
+        alturaDasPessoas[espacoDisponivel] = alturaInserida;
+    }
+
+    public static void organizarVetorDeNomes(String[] nomesDasPessoas,int[] idadeDasPessoas,double[] alturaDasPessoas)
     {
         for (int i = 0; i <= 8; i = i + 1){
             for (int j = 0; j < 9 - i; j = j + 1) {
-                if (vetorQualquer[j] == null & vetorQualquer[j+1] != null){
-                    String aux = vetorQualquer[j];
-                    vetorQualquer[j] = vetorQualquer[j+1];
-                    vetorQualquer[j+1] = aux;
+                if (nomesDasPessoas[j] == null & nomesDasPessoas[j+1] != null)
+                {
+                    String auxiliarNome = nomesDasPessoas[j];
+                    nomesDasPessoas[j] = nomesDasPessoas[j+1];
+                    nomesDasPessoas[j+1] = auxiliarNome;
+
+                    int auxiliarIdade = idadeDasPessoas[j];
+                    idadeDasPessoas[j] = idadeDasPessoas[j+1];
+                    idadeDasPessoas[j+1] = auxiliarIdade;
+
+                    double auxiliarAltura = alturaDasPessoas[j];
+                    alturaDasPessoas[j] = alturaDasPessoas[j+1];
+                    alturaDasPessoas[j+1] = auxiliarAltura;
                 }
             }
         }
-        return vetorQualquer;
     }
 
     public static int checarEspacoDisponivelString(String[] vetor)
