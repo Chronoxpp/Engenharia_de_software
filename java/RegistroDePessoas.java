@@ -23,68 +23,33 @@ class RegistroDePessoas
             System.out.println(" ");
             switch(opcaoEscolhida)
             {   
-                
                 case 1:
-                    int posicaoSemValor = checarEspacoDisponivelString(nomesDasPessoas);
-                    if(posicaoSemValor != -1)
-                    {
-                        registrarPessoa(nomesDasPessoas, idadeDasPessoas, alturaDasPessoas, posicaoSemValor, leitor);
-                        organizarVetorDeNomes(nomesDasPessoas, idadeDasPessoas, alturaDasPessoas);
-                    }
-                    else
-                    {
-                        System.out.println("Não há espaço disponivel!");
-                    }
+                    cadastrarNovaPessoa(nomesDasPessoas, idadeDasPessoas, alturaDasPessoas, leitor);
+                    organizarOrdemDosRegistros(nomesDasPessoas, idadeDasPessoas, alturaDasPessoas);
+
                     break;
 
                 case 2:
-                    System.out.print("Registro que será excluido: ");
-                    int registroEscolhido = leitor.nextInt();
-
-                    if(nomesDasPessoas[registroEscolhido] != null)
-                    {
-                        excluirRegistroDoVetor(nomesDasPessoas, idadeDasPessoas, alturaDasPessoas, registroEscolhido);
-                        System.out.println("Registro excluido");
-                        organizarVetorDeNomes(nomesDasPessoas, idadeDasPessoas, alturaDasPessoas);
-                    }
-                    else
-                    {
-                        System.out.println(" ");
-                        System.out.println("Esse registro ainda não existe!");
-                    }
+                    excluirUmaPessoa(nomesDasPessoas, idadeDasPessoas, alturaDasPessoas, leitor);
+                    organizarOrdemDosRegistros(nomesDasPessoas, idadeDasPessoas, alturaDasPessoas);
 
                     break;
 
                 case 3:
                     listarDadosRegistrados(nomesDasPessoas, idadeDasPessoas, alturaDasPessoas);
+
                     break;
 
                 case 4:
-                    System.out.print("Qual indice desejado: ");
-                    int indiceEscolhido = leitor.nextInt();
-                    if (checarEspacoDesejadoDisponivel(nomesDasPessoas, indiceEscolhido) == indiceEscolhido)
-                    {
-                        registrarPessoa(nomesDasPessoas, idadeDasPessoas, alturaDasPessoas, indiceEscolhido, leitor);
-                        organizarVetorDeNomes(nomesDasPessoas, idadeDasPessoas, alturaDasPessoas);
-                    }
-                    else
-                    {
-                        if(checarEspacoDesejadoDisponivel(nomesDasPessoas, indiceEscolhido) != -1)
-                        {
-                            empurrarRegistroDePessoas(nomesDasPessoas, idadeDasPessoas, alturaDasPessoas, indiceEscolhido);
-                            registrarPessoa(nomesDasPessoas, idadeDasPessoas, alturaDasPessoas, indiceEscolhido, leitor);
-                            organizarVetorDeNomes(nomesDasPessoas, idadeDasPessoas, alturaDasPessoas);
-                        }
-                        else
-                        {
-                            System.out.println("espaço indisponivel!");
-                        }
-                    }
+                    cadastrarNovaPessoaComIndicePersonalizado(nomesDasPessoas, idadeDasPessoas, alturaDasPessoas, leitor);
+                    organizarOrdemDosRegistros(nomesDasPessoas, idadeDasPessoas, alturaDasPessoas);
+
                     break;
 
                 case 5:
-                    System.out.println("Programa encerrado...");
+                    System.out.println("PROGRAMA ENCERRADO...");
                     continuar = false;
+
                     break;
                     
                 default:
@@ -92,38 +57,49 @@ class RegistroDePessoas
             }
             System.out.println(" ");
         }
+
         leitor.close(); 
+    }
+
+    public static void cadastrarNovaPessoa(String[] nomesDasPessoas,int[] idadeDasPessoas,double[] alturaDasPessoas,Scanner leitor)
+    {
+        int posicaoSemValor = checarUmEspacoDisponivelEmTodoVetor(nomesDasPessoas);
+        if(posicaoSemValor != -1)
+        {
+            registrarPessoa(nomesDasPessoas, idadeDasPessoas, alturaDasPessoas, posicaoSemValor, leitor);
+        }
+        else
+        {
+            System.out.println("Não há espaço disponivel!");
+        }
+    }
+
+    public static int checarUmEspacoDisponivelEmTodoVetor(String[] vetor)
+    {
+        for(int i = 0; i <= 9; i = i+1)
+        {
+            if(vetor[i] == null)
+            {
+                return i;
+            }
+        }
+        return -1;
     }
 
     public static void registrarPessoa(String[] nomesDasPessoas,int []idadeDasPessoas,double[] alturaDasPessoas,int espacoDisponivel,Scanner leitor)
     {
-        String nomeInserido;
-        int idadeInserida;
-        double alturaInserida;
 
-        do
-        {
-            System.out.print("Insira o nome: ");
-            nomeInserido = leitor.next();
-        }while(nomeInserido.equals(""));
-        nomesDasPessoas[espacoDisponivel] = nomeInserido;
+        System.out.print("Insira o nome: ");
+        nomesDasPessoas[espacoDisponivel] = leitor.next();
 
-        do
-        {
-            System.out.print("Insira a idade: ");
-            idadeInserida = leitor.nextInt();
-        }while(idadeInserida == 0);
-        idadeDasPessoas[espacoDisponivel] = idadeInserida;
+        System.out.print("Insira a idade: ");
+        idadeDasPessoas[espacoDisponivel] = leitor.nextInt();
 
-        do
-        {
-            System.out.print("Insira a altura: ");
-            alturaInserida = leitor.nextDouble();
-        }while(alturaInserida == 0);
-        alturaDasPessoas[espacoDisponivel] = alturaInserida;
+        System.out.print("Insira a altura: ");
+        alturaDasPessoas[espacoDisponivel] = leitor.nextDouble();
     }
 
-    public static void organizarVetorDeNomes(String[] nomesDasPessoas,int[] idadeDasPessoas,double[] alturaDasPessoas)
+    public static void organizarOrdemDosRegistros(String[] nomesDasPessoas,int[] idadeDasPessoas,double[] alturaDasPessoas)
     {
         for (int i = 0; i <= 8; i = i + 1){
             for (int j = 0; j < 9 - i; j = j + 1) {
@@ -145,42 +121,31 @@ class RegistroDePessoas
         }
     }
 
-    public static void empurrarRegistroDePessoas(String[] nomesDasPessoas,int[] idadeDasPessoas,double[] alturaDasPessoas,int inicioDoEmpurrao)
+    public static void cadastrarNovaPessoaComIndicePersonalizado(String[] nomesDasPessoas,int[] idadeDasPessoas,double[] alturaDasPessoas,Scanner leitor)
     {
-        for (int i = inicioDoEmpurrao; i <= 8; i = i + 1){
-            for (int j = inicioDoEmpurrao; j < 9 - i; j = j + 1)
-             {
-                if (nomesDasPessoas[j] == null & nomesDasPessoas[j+1] != null)
-                {
-                    String auxiliarNome = nomesDasPessoas[j];
-                    nomesDasPessoas[j] = nomesDasPessoas[j+1];
-                    nomesDasPessoas[j+1] = auxiliarNome;
-
-                    int auxiliarIdade = idadeDasPessoas[j];
-                    idadeDasPessoas[j] = idadeDasPessoas[j+1];
-                    idadeDasPessoas[j+1] = auxiliarIdade;
-
-                    double auxiliarAltura = alturaDasPessoas[j];
-                    alturaDasPessoas[j] = alturaDasPessoas[j+1];
-                    alturaDasPessoas[j+1] = auxiliarAltura;
-                }
-            }
-        }
-    }
-
-    public static int checarEspacoDisponivelString(String[] vetor)
-    {
-        for(int i = 0; i <= 9; i = i+1)
+        System.out.print("Indice desejado: ");
+        int indiceEscolhido = leitor.nextInt();
+        if (checarEspacoDisponivelDoIndiceEscolhido(nomesDasPessoas, indiceEscolhido) == indiceEscolhido)
         {
-            if(vetor[i] == null)
+            registrarPessoa(nomesDasPessoas, idadeDasPessoas, alturaDasPessoas, indiceEscolhido, leitor);
+
+        }
+        else
+        {
+            if(checarEspacoDisponivelDoIndiceEscolhido(nomesDasPessoas, indiceEscolhido) != -1)
             {
-                return i;
+                empurrarRegistroDePessoas(nomesDasPessoas, idadeDasPessoas, alturaDasPessoas, indiceEscolhido);
+                registrarPessoa(nomesDasPessoas, idadeDasPessoas, alturaDasPessoas, indiceEscolhido, leitor);
+
+            }
+            else
+            {
+                System.out.println("Não há espaço disponivel!");
             }
         }
-        return -1;
     }
 
-    public static int checarEspacoDesejadoDisponivel(String[] vetor, int indiceDesejado)
+    public static int checarEspacoDisponivelDoIndiceEscolhido(String[] vetor, int indiceDesejado)
     {
         for(int i = indiceDesejado; i <= 9; i = i+1)
         {
@@ -192,35 +157,59 @@ class RegistroDePessoas
         return -1;
     }
 
-
-    public static String registrarNome(String[] vetorNomes,int espacoDisponivel)
+    public static void empurrarRegistroDePessoas(String[] nomesDasPessoas,int[] idadeDasPessoas,double[] alturaDasPessoas,int inicioDoEmpurrao)
     {
-        Scanner leitor = new Scanner(System.in);
-        String nomeInserido;
+        for (int j = 9; j >= inicioDoEmpurrao + 1; j = j - 1)
+        {
+            if (nomesDasPessoas[j] == null & nomesDasPessoas[j-1] != null)
+            {
+                String auxiliarNome = nomesDasPessoas[j];
+                nomesDasPessoas[j] = nomesDasPessoas[j-1];
+                nomesDasPessoas[j-1] = auxiliarNome;
 
-        System.out.print("Informe o nome: ");
-        nomeInserido = leitor.nextLine();
-        return nomeInserido;
+                int auxiliarIdade = idadeDasPessoas[j];
+                idadeDasPessoas[j] = idadeDasPessoas[j-1];
+                idadeDasPessoas[j-1] = auxiliarIdade;
+
+                double auxiliarAltura = alturaDasPessoas[j];
+                alturaDasPessoas[j] = alturaDasPessoas[j-1];
+                alturaDasPessoas[j-1] = auxiliarAltura;
+            }
+        }
+    }    
+
+    public static void excluirUmaPessoa(String[] nomesDasPessoas,int[] idadeDasPessoas,double[] alturaDasPessoas,Scanner leitor)
+    {
+        System.out.print("Registro que será excluido: ");
+        int registroEscolhido = leitor.nextInt();
+
+        if(nomesDasPessoas[registroEscolhido] != null)
+        {
+            System.out.println("Você tem certeza que deseja excluir esse registro?");
+            System.out.println("S = sim. Ou Pressione qualquer outra tecla para cancelar");
+            System.out.print("Opção desejada: ");
+            if(leitor.next().equalsIgnoreCase("S"))
+            {
+                excluirPessoa(nomesDasPessoas, idadeDasPessoas, alturaDasPessoas, registroEscolhido);
+                System.out.println("Registro excluido!");
+            }
+            else
+            {
+                System.out.println("Exclusão cancelada!");
+            }
+        }
+        else
+        {
+            System.out.println(" ");
+            System.out.println("Esse registro ainda não existe!");
+        }
     }
 
-    public static int registrarIdade(int[] vetorIdades,int espacoDisponivel)
+    public static void excluirPessoa(String[] vetorNomes,int[] vetorIdades,double[] vetorAlturas,int registroEscolhido)
     {
-        Scanner leitor = new Scanner(System.in);
-        int idadeInserida;
-
-        System.out.print("Informe a idade: ");
-        idadeInserida = leitor.nextInt();
-        return idadeInserida;
-    }
-
-    public static double registrarAltura(double[] vetorAlturas,int espacoDisponivel)
-    {
-        Scanner leitor = new Scanner(System.in);
-        double alturaInserida;
-
-        System.out.print("Informe a altura: ");
-        alturaInserida = leitor.nextDouble();
-        return alturaInserida;
+        vetorNomes[registroEscolhido] = null;
+        vetorIdades[registroEscolhido] = 0;
+        vetorAlturas[registroEscolhido] = 0.0;
     }
 
     public static void listarDadosRegistrados(String[] vetorNomes,int[] vetorIdades,double[] vetorAlturas)
@@ -240,12 +229,5 @@ class RegistroDePessoas
                 }
             }
         }
-    }
-
-    public static void excluirRegistroDoVetor(String[] vetorNomes,int[] vetorIdades,double[] vetorAlturas,int registroEscolhido)
-    {
-        vetorNomes[registroEscolhido] = null;
-        vetorIdades[registroEscolhido] = 0;
-        vetorAlturas[registroEscolhido] = 0.0;
-    }
+    }    
 }
