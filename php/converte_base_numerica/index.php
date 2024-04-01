@@ -104,18 +104,17 @@
 
     function inverterValorQualquer($valorQualquer = array())
     {
-        String[] valorQuebrado = valorQualquer.split("");
-        valorQualquer = "";
-        for(int i = (valorQuebrado.length)-1; i >= 0; i = i-1)
+        $valorInvertido = "";
+        for($i = count($valorQualquer) - 1; $i >= 0; $i = $i-1)
         {
-            valorQualquer = valorQualquer + valorQuebrado[i];
+            $valorInvertido = $valorInvertido + $valorQualquer[$i];
         }
-        return  valorQualquer;
+        return  $valorInvertido;
     }
 
     function converterParaAlgarismoHexadecimal($numeroHexadecimal)
     {
-        switch (numeroHexadecimal)
+        switch ($numeroHexadecimal)
         {
             case (10):
                 return "A";
