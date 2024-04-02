@@ -7,13 +7,14 @@
         $numerosNaBaseBinario = array();
         $numerosNaBaseBinario = converterArrayDecimalParaBinario($numerosNaBaseDecimal);
 
-        $numerosNaBaseOctal = array();
-        $numerosNaBaseOctal = converterArrayDecimalParaOctal($numerosNaBaseDecimal);
+        // $numerosNaBaseOctal = array();
+        // $numerosNaBaseOctal = converterArrayDecimalParaOctal($numerosNaBaseDecimal);
 
-        $numerosNaBaseHexadecimal = array();
-        $numerosNaBaseHexadecimal = converterArrayDecimalParaHexadecimal($numerosNaBaseDecimal);
+        // $numerosNaBaseHexadecimal = array();
+        // $numerosNaBaseHexadecimal = converterArrayDecimalParaHexadecimal($numerosNaBaseDecimal);
 
-        #exibirDadosDosVetores(numerosNaBaseDecimal,numerosNaBaseBinario,numerosNaBaseOctal,numerosNaBaseHexadecimal);
+        // exibirDadosDosVetores($numerosNaBaseDecimal,$numerosNaBaseBinario,$numerosNaBaseOctal,$numerosNaBaseHexadecimal);
+        exibirDadosDosVetores($numerosNaBaseDecimal,$numerosNaBaseBinario);
     }
 
     function preencherVetordecimal($vetorDecimal = array())
@@ -29,7 +30,7 @@
     function converterArrayDecimalParaBinario($vetorDecimal = array())
     {
         $vetorBinario = array();
-        foreach($numeroDecimal as $vetorDecimal)
+        foreach($vetorDecimal as $numeroDecimal)
         {
             $vetorBinario[$numeroDecimal] = converterNumeroNaBaseDesejada($numeroDecimal,2);
         }
@@ -37,37 +38,37 @@
         return $vetorBinario;
     }
 
-    function converterArrayDecimalParaOctal($vetorDecimal = array())
-    {
-        $vetorOctal = arrya();
-        foreach($numeroDecimal as $vetorDecimal)
-        {
-            $vetorOctal[$numeroDecimal] = converterNumeroNaBaseDesejada($numeroDecimal,8);
-        }
+    // function converterArrayDecimalParaOctal($vetorDecimal = array())
+    // {
+    //     $vetorOctal = array();
+    //     foreach($vetorDecimal as $numeroDecimal)
+    //     {
+    //         $vetorOctal[$numeroDecimal] = converterNumeroNaBaseDesejada($numeroDecimal,8);
+    //     }
 
-        return $vetorOctal;
-    }
+    //     return $vetorOctal;
+    // }
 
-    function converterArrayDecimalParaHexadecimal($vetorDecimal = array())
-    {
-        $vetorHexadecimal = array();
-        foreach($numeroDecimal as $vetorDecimal)
-        {
-            $vetorHexadecimal[$numeroDecimal] = converterNumeroNaBaseDesejada($numeroDecimal,16);
-        }
+    // function converterArrayDecimalParaHexadecimal($vetorDecimal = array())
+    // {
+    //     $vetorHexadecimal = array();
+    //     foreach($vetorDecimal as $numeroDecimal)
+    //     {
+    //         $vetorHexadecimal[$numeroDecimal] = converterNumeroNaBaseDesejada($numeroDecimal,16);
+    //     }
 
-        return $vetorHexadecimal;
-    }
+    //     return $vetorHexadecimal;
+    // }
     
     function converterNumeroNaBaseDesejada($decimal,$baseNumerica)
     {
-        $numeroNaBaseDesejada = "";
+        $numeroNaBaseDesejada = array();
 
         if($decimal < $baseNumerica)
         {
             if($baseNumerica == 16)
             {
-                return converterParaAlgarismoHexadecimal($decimal);
+                // return converterParaAlgarismoHexadecimal($decimal);
             }
             else
             {
@@ -80,23 +81,23 @@
             {
                 if($baseNumerica == 16)
                 {
-                    $numeroNaBaseDesejada = $numeroNaBaseDesejada . converterParaAlgarismoHexadecimal($decimal % $baseNumerica);
-                    $decimal = $decimal / $baseNumerica;
+                    // $numeroNaBaseDesejada = $numeroNaBaseDesejada . converterParaAlgarismoHexadecimal($decimal % $baseNumerica);
+                    $decimal = intval($decimal / $baseNumerica);
                 }
                 else
                 {
-                    $numeroNaBaseDesejada = $numeroNaBaseDesejada . ($decimal % $baseNumerica);
-                    $decimal = ($decimal / $baseNumerica);
+                    $numeroNaBaseDesejada[] = ($decimal % $baseNumerica);
+                    $decimal = intval($decimal / $baseNumerica);
                 }
 
             }
             if($baseNumerica == 16)
             {
-                $numeroNaBaseDesejada = $numeroNaBaseDesejada . converterParaAlgarismoHexadecimal($decimal);
+                // $numeroNaBaseDesejada = $numeroNaBaseDesejada . converterParaAlgarismoHexadecimal($decimal);
             }
             else
             {
-                $numeroNaBaseDesejada = $numeroNaBaseDesejada . $decimal;
+                $numeroNaBaseDesejada[] = $decimal;
             }
         }
         return  (inverterValorQualquer($numeroNaBaseDesejada));
@@ -107,37 +108,58 @@
         $valorInvertido = "";
         for($i = count($valorQualquer) - 1; $i >= 0; $i = $i-1)
         {
-            $valorInvertido = $valorInvertido + $valorQualquer[$i];
+            $valorInvertido = $valorInvertido . $valorQualquer[$i];
         }
         return  $valorInvertido;
     }
 
-    function converterParaAlgarismoHexadecimal($numeroHexadecimal)
-    {
-        switch ($numeroHexadecimal)
-        {
-            case (10):
-                return "A";
-            case (11):
-                return "B";
-            case (12):
-                return "C";
-            case (13):
-                return "D";
-            case (14):
-                return "E";
-            case (15):
-                return "F";
-            default:
-                return $numeroHexadecimal;
-        }
-    }
+    // function converterParaAlgarismoHexadecimal($numeroHexadecimal)
+    // {
+    //     switch ($numeroHexadecimal)
+    //     {
+    //         case (10):
+    //             return "A";
+    //         case (11):
+    //             return "B";
+    //         case (12):
+    //             return "C";
+    //         case (13):
+    //             return "D";
+    //         case (14):
+    //             return "E";
+    //         case (15):
+    //             return "F";
+    //         default:
+    //             return $numeroHexadecimal;
+    //     }
+    // }
 
-    function exibirDadosDosVetores($vetorDecimal = array(), $vetorBinario = array(), $vetorOctal = array(), $vetorHexadecimal = array())
+    // function exibirDadosDosVetores($vetorDecimal = array(), $vetorBinario = array(), $vetorOctal = array(), $vetorHexadecimal = array())
+    // {
+    //     for($i = 0; $i <= 255;$i = $i +1)
+    //     {
+    //         echo ("D: ". $vetorDecimal[$i] . "   " . "B: " . $vetorBinario[$i] . "   " . "O: " . $vetorOctal[$i] . "   " . "H: " . $vetorHexadecimal[$i]);
+    //     }
+    // }
+
+    function exibirDadosDosVetores($vetorDecimal = array(),$vetorBinario = array())
     {
         for($i = 0; $i <= 255;$i = $i +1)
-        {
-            System.out.println("D: "+vetorDecimal[i]+"   "+"B: "+vetorBinario[i]+"   "+"O: "+vetorOctal[i]+"   "+"H: "+vetorHexadecimal[i]);
+        {   echo "<tr>";
+                for($j = 1; $j <= 2; $j = $j + 1)
+                {
+                echo "<td>";
+                    if($j == 1)
+                    {
+                        echo ("D:". $vetorDecimal[$i]);
+                    }   
+                    else
+                    {
+                        echo ("B:". $vetorBinario[$i]);
+                    } 
+                echo "</td>";
+                }
+            echo "</tr>";
         }
     }
 ?>
@@ -162,23 +184,9 @@
         </thead>
         <tbody>
             <tr>
-                <td>10</td>
-                <td>2</td>
-                <td>8</td>
-                <td>16</td>
+                <td><?php padrao(); ?></td>
             </tr>
         </tbody>
     </table>
 </body>
 </html>
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-    </head>
-    <body>
-        
-    </body>
-    </html>
