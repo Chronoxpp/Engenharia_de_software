@@ -7,14 +7,14 @@
         $numerosNaBaseBinario = array();
         $numerosNaBaseBinario = converterArrayDecimalParaBinario($numerosNaBaseDecimal);
 
-        // $numerosNaBaseOctal = array();
-        // $numerosNaBaseOctal = converterArrayDecimalParaOctal($numerosNaBaseDecimal);
+        $numerosNaBaseOctal = array();
+        $numerosNaBaseOctal = converterArrayDecimalParaOctal($numerosNaBaseDecimal);
 
         // $numerosNaBaseHexadecimal = array();
         // $numerosNaBaseHexadecimal = converterArrayDecimalParaHexadecimal($numerosNaBaseDecimal);
 
         // exibirDadosDosVetores($numerosNaBaseDecimal,$numerosNaBaseBinario,$numerosNaBaseOctal,$numerosNaBaseHexadecimal);
-        exibirDadosDosVetores($numerosNaBaseDecimal,$numerosNaBaseBinario);
+        exibirDadosDosVetores($numerosNaBaseDecimal,$numerosNaBaseBinario,$numerosNaBaseOctal);
     }
 
     function preencherVetordecimal($vetorDecimal = array())
@@ -38,16 +38,16 @@
         return $vetorBinario;
     }
 
-    // function converterArrayDecimalParaOctal($vetorDecimal = array())
-    // {
-    //     $vetorOctal = array();
-    //     foreach($vetorDecimal as $numeroDecimal)
-    //     {
-    //         $vetorOctal[$numeroDecimal] = converterNumeroNaBaseDesejada($numeroDecimal,8);
-    //     }
+    function converterArrayDecimalParaOctal($vetorDecimal = array())
+    {
+        $vetorOctal = array();
+        foreach($vetorDecimal as $numeroDecimal)
+        {
+            $vetorOctal[$numeroDecimal] = converterNumeroNaBaseDesejada($numeroDecimal,8);
+        }
 
-    //     return $vetorOctal;
-    // }
+        return $vetorOctal;
+    }
 
     // function converterArrayDecimalParaHexadecimal($vetorDecimal = array())
     // {
@@ -142,11 +142,11 @@
     //     }
     // }
 
-    function exibirDadosDosVetores($vetorDecimal = array(),$vetorBinario = array())
+    function exibirDadosDosVetores($vetorDecimal = array(),$vetorBinario = array(),$vetorOctal = array())
     {
         for($i = 0; $i <= 255;$i = $i +1)
         {   echo "<tr>";
-                for($j = 1; $j <= 2; $j = $j + 1)
+                for($j = 1; $j <= 3; $j = $j + 1)
                 {
                 echo "<td>";
                     if($j == 1)
@@ -155,8 +155,15 @@
                     }   
                     else
                     {
-                        echo ("B:". $vetorBinario[$i]);
-                    } 
+                        if($j == 2)
+                        {
+                            echo ("B:". $vetorBinario[$i]);
+                        }
+                        else
+                        {
+                            echo ("O:". $vetorOctal[$i]);
+                        }
+                    }
                 echo "</td>";
                 }
             echo "</tr>";
