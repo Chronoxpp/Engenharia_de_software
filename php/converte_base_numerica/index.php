@@ -175,6 +175,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Converter base numerica</title>
+    <link rel="stylesheet" href="estilo.css">
 </head>
 <body>
     <h1>Abaixo há uma tabela contendo os resultados da conversão</h1>
@@ -182,7 +183,7 @@
         <thead>
             <tr>
                 <th><h2>|Decimal|</h2></th>
-                <th><h2>Binario|</h2></th>
+                <th><h2 id="binario">Binario|</h2></th>
                 <th><h2>Octal|</h2></th>
                 <th><h2>Hexadecimal|</h2></th>
             </tr>
