@@ -14,7 +14,7 @@ public class Nomes
         mensagemFinal = mensagemFinal + "Seu nome tem "+(nome.replaceAll(" ","")).length()+" letras"+"\n";
         mensagemFinal = mensagemFinal + "A primeira letra do seu nome é:   "+nome.replaceAll(" ","").charAt(0)+"\n";
         mensagemFinal = mensagemFinal + "A ultima letra do seu nome é:   "+nome.replaceAll(" ","").charAt((nome.replaceAll(" ","")).length() - 1)+"\n";
-        mensagemFinal = mensagemFinal + "Seu primeiro nome é:   "
+        mensagemFinal = mensagemFinal + "Seu primeiro nome é:   ";
 
 
 
