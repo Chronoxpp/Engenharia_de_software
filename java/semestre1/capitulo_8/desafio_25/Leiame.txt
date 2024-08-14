@@ -1,0 +1,1 @@
+O software esta funcional, mas com baixo grau de confiabilidade pois nas interações com caixa de textos caso você não insira a resposta da forma esperada o programa é encerrado !!
