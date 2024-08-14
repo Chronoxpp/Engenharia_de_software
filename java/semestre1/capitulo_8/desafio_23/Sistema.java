@@ -1,3 +1,5 @@
+//Desenvolvido por: Lucas Dourado Rodrigues
+
 import javax.swing.JOptionPane;
 
 public class Sistema 
