@@ -9,14 +9,14 @@ public class ItemVenda
         this.quantidade = quantidade;
     }
 
-    public Produto getProduto() 
-    {
-        return produto;
-    }
-
     public void setProduto(Produto produto) 
     {
         this.produto = produto;
+    }
+
+    public Produto getProduto()
+    {
+        return this.produto;
     }
 
     public double calcularTotal()

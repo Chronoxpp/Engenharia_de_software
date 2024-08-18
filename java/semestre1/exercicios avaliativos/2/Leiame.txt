@@ -1,1 +1,15 @@
-Incompleta
+Funcionalidades:
+Cadastro de produtos = dar nome, preco e quantidade
+Realizacao de vendas = selecionar produtos, selecionar cliente
+Parcelamento dos pagamentos = obter o valor total, determinar quantidade de parcelas e determinar o valor da parcela
+Movimentacao de estoque dos produtos = registrar a saida dos produtos
+
+Classes:
+Cliente: nome
+Venda: ItemVenda, Cliente
+ItemVenda: Produto, quantidade
+Produto: estoque, preco, nome
+Pagamento: valor, Venda
+Parcelas: ID, valor
+Sistema: Produto, Cliente, Venda, Pagamento
+Main: ciclo de vida

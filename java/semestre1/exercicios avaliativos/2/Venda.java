@@ -7,9 +7,7 @@ public class Venda
     List<ItemVenda> itens = new ArrayList<>();
 
     Venda()
-    {
-        
-    }
+    {}
 
     Venda(Cliente cliente)
     {

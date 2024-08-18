@@ -4,12 +4,6 @@ public class Produto
     private double preco;
     private double estoque;
 
-    Produto(String nome, double preco)
-    {
-        this.nome = nome;
-        this.preco = preco;
-    }
-
     Produto(String nome, double preco, double estoque)
     {
         this.nome = nome;
