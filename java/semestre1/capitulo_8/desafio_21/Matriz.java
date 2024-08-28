@@ -1,3 +1,5 @@
+//Desenvolvido por Lucas Dourado Rodrigues
+
 import java.text.DecimalFormat;
 import java.util.Random;
 
