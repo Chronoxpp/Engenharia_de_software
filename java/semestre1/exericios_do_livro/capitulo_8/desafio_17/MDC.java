@@ -1,5 +1,7 @@
 //Desenvolvido por Lucas Dourado Rodrigues
 
+import java.util.List;
+
 public class MDC {
     public int calcularMDC(int numero1, int numero2)
     {
@@ -29,6 +31,88 @@ public class MDC {
                 }
             }
             i += 1;
+        }
+
+        return resultadoMDC;
+    }
+
+
+    public int calcularMDC(List<Integer> numeros)
+    {
+        //verifica se ha numero == 0
+        for(Integer numero : numeros)
+        {
+            if(numero <= 0)
+            {
+                System.out.println("Retornou 0");
+                return 0;
+            }
+        }
+
+        //popula o vetor com os valores da lista
+        int[] vetorNumeros = new int[numeros.size()];
+        for(int i = 0; i < vetorNumeros.length; i += 1)
+        {
+            vetorNumeros[i] = numeros.get(i);
+        }
+
+        //Verifica se ha numero diferente de 1
+        boolean haNumeroDiferenteDe1 = false;
+        for(int i = 0; i < vetorNumeros.length; i += 1)
+        {
+            if(vetorNumeros[i] != 1)
+            {
+                haNumeroDiferenteDe1 = true;
+                break;
+            }
+        }
+
+
+        int divisor = 2;
+        int resultadoMDC = 1;
+        while(haNumeroDiferenteDe1)
+        {
+            boolean todosOsNumerosSaoDivisiveisPeloDivisor = true;
+            for(int i = 0; i < vetorNumeros.length; i += 1)
+            {
+                if(vetorNumeros[i] % divisor == 0)
+                {
+                    vetorNumeros[i] = vetorNumeros[i] / divisor;
+                }
+                else
+                {
+                    todosOsNumerosSaoDivisiveisPeloDivisor = false;
+                }
+            }
+
+            if(todosOsNumerosSaoDivisiveisPeloDivisor)
+            {
+                resultadoMDC *= divisor;
+            }
+
+            boolean todosOsNumerosSaoIndiviseisPeloDivisor = true;
+            for(int i = 0; i < vetorNumeros.length; i += 1)
+            {
+                if(vetorNumeros[i] % divisor == 0)
+                {
+                    todosOsNumerosSaoIndiviseisPeloDivisor = false;
+                }
+            }
+
+            if(todosOsNumerosSaoIndiviseisPeloDivisor)
+            {
+                divisor += 1;
+            }
+
+            haNumeroDiferenteDe1 = false;
+            for(int i = 0; i < vetorNumeros.length; i += 1)
+            {
+                if(vetorNumeros[i] != 1)
+                {
+                    haNumeroDiferenteDe1 = true;
+                    break;
+                }
+            }
         }
 
         return resultadoMDC;
