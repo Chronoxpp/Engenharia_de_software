@@ -39,82 +39,144 @@ public class MDC {
 
     public int calcularMDC(List<Integer> numeros)
     {
-        //verifica se ha numero == 0
-        for(Integer numero : numeros)
+        if(numeros.isEmpty())
         {
-            if(numero <= 0)
-            {
-                System.out.println("Retornou 0");
-                return 0;
-            }
+            return -1;
         }
 
-        //popula o vetor com os valores da lista
-        int[] vetorNumeros = new int[numeros.size()];
-        for(int i = 0; i < vetorNumeros.length; i += 1)
+        if(verificarSeHaNumeroZeroNaLista(numeros))
         {
-            vetorNumeros[i] = numeros.get(i);
+            return -1;
         }
 
-        //Verifica se ha numero diferente de 1
-        boolean haNumeroDiferenteDe1 = false;
-        for(int i = 0; i < vetorNumeros.length; i += 1)
-        {
-            if(vetorNumeros[i] != 1)
-            {
-                haNumeroDiferenteDe1 = true;
-                break;
-            }
-        }
-
+        int[] numerosVetor = converterListaInteiraParaVetorInteiro(numeros);
 
         int divisor = 2;
         int resultadoMDC = 1;
-        while(haNumeroDiferenteDe1)
+        while(verificarSeHaNumeroDiferenteDe1(numerosVetor))
         {
-            boolean todosOsNumerosSaoDivisiveisPeloDivisor = true;
-            for(int i = 0; i < vetorNumeros.length; i += 1)
-            {
-                if(vetorNumeros[i] % divisor == 0)
-                {
-                    vetorNumeros[i] = vetorNumeros[i] / divisor;
-                }
-                else
-                {
-                    todosOsNumerosSaoDivisiveisPeloDivisor = false;
-                }
-            }
-
-            if(todosOsNumerosSaoDivisiveisPeloDivisor)
+            if(determinarSeTodosSaoDivisiveis(numerosVetor, divisor))
             {
                 resultadoMDC *= divisor;
             }
 
-            boolean todosOsNumerosSaoIndiviseisPeloDivisor = true;
-            for(int i = 0; i < vetorNumeros.length; i += 1)
+            //Realiza a divisao dos numeros divisiveis pelo divisor
+            for(int i = 0; i < numerosVetor.length; i += 1)
             {
-                if(vetorNumeros[i] % divisor == 0)
+                if(numerosVetor[i] % divisor == 0)
+                {
+                    numerosVetor[i] = numerosVetor[i] / divisor;
+                }
+            }
+
+            boolean todosOsNumerosSaoIndiviseisPeloDivisor = true;
+            for(int i = 0; i < numerosVetor.length; i += 1)
+            {
+                if(numerosVetor[i] % divisor == 0)
                 {
                     todosOsNumerosSaoIndiviseisPeloDivisor = false;
                 }
             }
 
-            if(todosOsNumerosSaoIndiviseisPeloDivisor)
+            if(determinarSeTodosSaoIndivisiveis(numerosVetor, divisor))
             {
                 divisor += 1;
-            }
-
-            haNumeroDiferenteDe1 = false;
-            for(int i = 0; i < vetorNumeros.length; i += 1)
-            {
-                if(vetorNumeros[i] != 1)
-                {
-                    haNumeroDiferenteDe1 = true;
-                    break;
-                }
             }
         }
 
         return resultadoMDC;
+    }
+
+    public boolean verificarSeHaNumeroZeroNaLista(List<Integer> lista)
+    {
+        for(Integer numero : lista)
+        {
+            if(numero <= 0)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    private int[] converterListaInteiraParaVetorInteiro(List<Integer> listaNumerosInteiros)
+    {
+        if(listaNumerosInteiros.isEmpty())
+        {
+            return null;
+        }
+
+        int[] vetor = new int[listaNumerosInteiros.size()];
+        for(int i = 0; i < vetor.length; i += 1)
+        {
+            vetor[i] = listaNumerosInteiros.get(i);
+        }
+
+        return vetor;
+    }
+
+    private boolean verificarSeHaNumeroDiferenteDe1(int[] vetor)
+    {
+        if(validarVetorInteiro(vetor) == false)
+        {
+            return false;
+        }
+
+        for(int i = 0; i < vetor.length; i += 1)
+        {
+            if(vetor[i] != 1)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    private boolean determinarSeTodosSaoDivisiveis(int[] numeros, int divisor)
+    {
+        if (validarVetorInteiro(numeros) == false)
+        {
+            return false;
+        }
+
+        for(int i = 0; i < numeros.length; i += 1)
+        {
+            if(numeros[i] % divisor != 0)
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    private boolean determinarSeTodosSaoIndivisiveis(int[] numeros, int divisor)
+    {
+        if (validarVetorInteiro(numeros) == false)
+        {
+            return false;
+        }
+
+        for(int i = 0; i < numeros.length; i += 1)
+        {
+            if(numeros[i] % divisor == 0)
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    private boolean validarVetorInteiro(int[] vetor)
+    {
+        if(vetor == null)
+        {
+            return false;
+        }
+
+        return true;
     }
 }

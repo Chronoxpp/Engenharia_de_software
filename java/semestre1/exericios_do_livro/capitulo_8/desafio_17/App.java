@@ -16,6 +16,7 @@ public class App {
         int n3 = mdc.calcularMDC(n1, n2);
         JOptionPane.showMessageDialog(null, "Numero 1: " + n1 + "\n numero 2: " + n2 + "\n\n MDC: " + n3);
 
+        //Abaixo é criado e populado uma lista de numeros de forma randomica, depois o valor do MDC é exibido
         Random randomizador = new Random();
         int totalDeNumerosNaLista = randomizador.nextInt(2, 6);
 
