@@ -246,6 +246,7 @@ public class UsuarioDAO<SQLExcption> {
         try
         {
             rs.next();
+            System.out.println(rs.getString("nome"));
         }
         catch(SQLException e)
         {
