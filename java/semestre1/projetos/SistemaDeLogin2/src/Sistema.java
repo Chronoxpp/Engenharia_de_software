@@ -142,6 +142,10 @@ public class Sistema {
                     {
                         senhaEstaCorreta = false;
                     }
+                    else if(senhaValidacao.length() < 6)
+                    {
+                        senhaEstaCorreta = false;
+                    }
                     else
                     {
                         senha = senhaValidacao;
@@ -151,7 +155,7 @@ public class Sistema {
             }
             catch(Exception e)
             {
-                JOptionPane.showMessageDialog(null, "Tente inserir a senha novamente");
+                JOptionPane.showMessageDialog(null, "Tente inserir a senha novamente, minimo de 6 caracteres");
                 senhaEstaCorreta = false;
             }
         }
@@ -307,19 +311,29 @@ public class Sistema {
         {
             try {
                 String senhaValidacao = JOptionPane.showInputDialog(null, "Digite a senha do novo usuario");
-                if (senhaValidacao == null) {
+                if (senhaValidacao == null)
+                {
                     senhaEstaCorreta = false;
-                } else {
+                }
+                else
+                {
                     senhaValidacao = senhaValidacao.trim();
-                    if (senhaValidacao.equals("")) {
+                    if (senhaValidacao.equals(""))
+                    {
                         senhaEstaCorreta = false;
-                    } else {
+                    }
+                    else if(senha.length() < 6)
+                    {
+                        senhaEstaCorreta = false;
+                    }
+                    else
+                    {
                         senha = senhaValidacao;
                         senhaEstaCorreta = true;
                     }
                 }
             } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, "Tente inserir a senha novamente");
+                JOptionPane.showMessageDialog(null, "Tente inserir a senha novamente, minimo de 6 caracteres");
                 senhaEstaCorreta = false;
             }
         }
