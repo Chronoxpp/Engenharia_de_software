@@ -132,36 +132,36 @@ public class App {
     }
 
     //
-    public static Integer somarValoresDiagonalPrincipal(int[][] matrizInteira)
+    public static Integer somarValoresDiagonalPrincipal(int[][] matriz)
     {
-        if(validarMatrizQuadrada(matrizInteira) == false)
+        if(validarMatrizQuadrada(matriz) == false)
         {
             return null;
         }
 
         int somatoria = 0;
-        for(int linha = 0; linha < matrizInteira.length; linha += 1)
+        for(int linha = 0; linha < matriz.length; linha += 1)
         {
             int coluna = linha;
-            somatoria += matrizInteira[linha][coluna];
+            somatoria += matriz[linha][coluna];
         }
 
         return somatoria;
     }
 
     //
-    public static Integer somarValoresDiagonalSecundaria(int[][] matrizInteira)
+    public static Integer somarValoresDiagonalSecundaria(int[][] matriz)
     {
-        if(validarMatrizQuadrada(matrizInteira) == false)
+        if(validarMatrizQuadrada(matriz) == false)
         {
             return null;
         }
 
         int somatoria = 0;
-        for(int linha = 0; linha < matrizInteira.length; linha += 1)
+        for(int linha = 0; linha < matriz.length; linha += 1)
         {
-            int coluna = (matrizInteira[0].length - 1) - linha; //Escreva e execute esse loop em um papel caso pareca confuso pra voce
-            somatoria += matrizInteira[linha][coluna];
+            int coluna = (matriz[0].length - 1) - linha; //Escreva e execute esse loop em um papel caso pareca confuso pra voce
+            somatoria += matriz[linha][coluna];
         }
 
         return somatoria;
