@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.lang.annotation.Retention;
 import java.util.Random;
 
 public class App {
@@ -33,7 +34,7 @@ public class App {
         Random randomizador = new Random();
         for(int linha = 0; linha < matrizInteira.length; linha += 1)
         {
-            for(int coluna = 0; coluna < matrizInteira[1].length; coluna += 1)
+            for(int coluna = 0; coluna < matrizInteira[0].length; coluna += 1)
             {
                 matrizInteira[linha][coluna] = randomizador.nextInt(10, 100);
             }
@@ -47,7 +48,7 @@ public class App {
 
         for(int linha = 0; linha < matrizInteira.length; linha += 1)
         {
-            for(int coluna = 0; coluna < matrizInteira[1].length; coluna += 1)
+            for(int coluna = 0; coluna < matrizInteira[0].length; coluna += 1)
             {
                 msg += matrizInteira[linha][coluna] + "   ";
             }
@@ -61,15 +62,14 @@ public class App {
     public static int[][] criarMatrizInteiraComSomatoriaLinhaEColuna(int matrizOriginal[][])
     {
         if(validarMatrizQuadrada(matrizOriginal) == false)
-        {
             return null;
-        }
 
-        int[][] novaMatriz = new int[matrizOriginal.length][matrizOriginal[1].length];
+
+        int[][] novaMatriz = new int[matrizOriginal.length][matrizOriginal[0].length];
 
         for(int linha = 0; linha < matrizOriginal.length; linha += 1)
         {
-            for(int coluna = 0; coluna < matrizOriginal[1].length; coluna += 1)
+            for(int coluna = 0; coluna < matrizOriginal[0].length; coluna += 1)
             {
                 int somatoria = 0;
 
@@ -78,7 +78,7 @@ public class App {
                     somatoria += matrizOriginal[linhaAuxiliar][coluna];
                 }
 
-                for(int colunaAuxiliar = 0; colunaAuxiliar < matrizOriginal[1].length; colunaAuxiliar += 1)
+                for(int colunaAuxiliar = 0; colunaAuxiliar < matrizOriginal[0].length; colunaAuxiliar += 1)
                 {
                     if(colunaAuxiliar != coluna) //Isso evita que o elemento [linha][coluna] seja somado novamente na somatoria
                         somatoria += matrizOriginal[linha][colunaAuxiliar];
@@ -141,12 +141,46 @@ public class App {
         int somatoria = 0;
         for(int linha = 0; linha < matrizInteira.length; linha += 1)
         {
-            int coluna = (matrizInteira[1].length - 1) - linha; //Escreva e execute esse loop em um papel caso pareca confuso pra voce
+            int coluna = (matrizInteira[0].length - 1) - linha; //Escreva e execute esse loop em um papel caso pareca confuso pra voce
             somatoria += matrizInteira[linha][coluna];
         }
 
         return somatoria;
     }
+
+
+    public static int[][] ordenarMatriz(int[][] matrizOriginal)
+    {
+        if(matrizOriginal == null)
+            return null;
+
+        int[] vetorOrdenado = new int[(matrizOriginal.length * matrizOriginal[0].length)];
+
+
+        int[][] matrizOrdenada = new int[matrizOriginal.length][matrizOriginal[0].length];
+    }
+
+    public static int[] converterMatrizParaVetor(int[][] matriz)
+    {
+        if(matriz == null)
+            return null;
+
+        int[] vetor = new int[(matriz.length * matriz[0].length)];
+        int contador = 0;
+
+        for(int linha = 0; linha < matriz.length; linha += 1)
+        {
+            for(int coluna = 0; coluna < matriz[0].length; coluna += 1)
+            {
+                vetor[contador] = matriz[linha][coluna];
+                contador += 1;
+            }
+        }
+
+        return vetor;
+    }
+
+
 
     public void exibirVetor(int[][] matriz)
     {
