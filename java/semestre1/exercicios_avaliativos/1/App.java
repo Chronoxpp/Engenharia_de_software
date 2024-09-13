@@ -17,6 +17,14 @@ public class App {
         msg = "Matriz somatoria: \n\n";
         msg += converterMatrizInteiraParaMsg(matrizSomatoria);
         JOptionPane.showMessageDialog(null, msg);
+
+        int somatoriaDiagonalPrincipal = somarValoresDiagonalPrincipal(matrizOriginal);
+        int somatoriaDiagonalSecundaria = somarValoresDiagonalSecundaria(matrizOriginal);
+
+        msg = "Somatoria diagonal principal = " + somatoriaDiagonalPrincipal + "\n";
+        msg += "Somatoria diagonal secundaria = " + somatoriaDiagonalSecundaria + "\n";
+        msg += "Soma das somatorias = " + (somatoriaDiagonalPrincipal + somatoriaDiagonalSecundaria);
+        JOptionPane.showMessageDialog(null, msg);
     }
 
     //
@@ -102,6 +110,42 @@ public class App {
         }
 
         return true;
+    }
+
+    //
+    public static Integer somarValoresDiagonalPrincipal(int[][] matrizInteira)
+    {
+        if(validarMatrizQuadrada(matrizInteira) == false)
+        {
+            return null;
+        }
+
+        int somatoria = 0;
+        for(int linha = 0; linha < matrizInteira.length; linha += 1)
+        {
+            int coluna = linha;
+            somatoria += matrizInteira[linha][coluna];
+        }
+
+        return somatoria;
+    }
+
+    //
+    public static Integer somarValoresDiagonalSecundaria(int[][] matrizInteira)
+    {
+        if(validarMatrizQuadrada(matrizInteira) == false)
+        {
+            return null;
+        }
+
+        int somatoria = 0;
+        for(int linha = 0; linha < matrizInteira.length; linha += 1)
+        {
+            int coluna = (matrizInteira[1].length - 1) - linha; //Escreva e execute esse loop em um papel caso pareca confuso pra voce
+            somatoria += matrizInteira[linha][coluna];
+        }
+
+        return somatoria;
     }
 
     public void exibirVetor(int[][] matriz)
