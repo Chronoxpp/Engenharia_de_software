@@ -52,18 +52,12 @@ public class App {
     //
     public static int[][] criarMatrizInteiraComSomatoriaLinhaEColuna(int matrizOriginal[][])
     {
-        if(matrizOriginal == null)
-        {
-            return null;
-        }
-
-        if(matrizOriginal.length != matrizOriginal[0].length)
+        if(validarMatrizQuadrada(matrizOriginal) == false)
         {
             return null;
         }
 
         int[][] novaMatriz = new int[matrizOriginal.length][matrizOriginal[1].length];
-
 
         for(int linha = 0; linha < matrizOriginal.length; linha += 1)
         {
@@ -87,6 +81,27 @@ public class App {
         }
 
         return novaMatriz;
+    }
+
+    //
+    public static boolean validarMatrizQuadrada(int[][] matriz)
+    {
+        if(matriz == null)
+        {
+            return false;
+        }
+
+        if(matriz.length != matriz[0].length)
+        {
+            return false;
+        }
+
+        if(matriz.length < 2 || matriz[0].length < 2)
+        {
+            return false;
+        }
+
+        return true;
     }
 
     public void exibirVetor(int[][] matriz)
