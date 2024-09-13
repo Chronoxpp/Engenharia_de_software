@@ -11,13 +11,13 @@ public class App {
         //Cria a matriz original e exibe na tela
         String msg;
         msg = "Matriz original: \n \n";
-        msg += converterMatrizInteiraParaMsg(matrizOriginal);
+        msg += converterMatrizParaMsg(matrizOriginal);
         JOptionPane.showMessageDialog(null, msg);
 
         //Cria a matriz somatoria e exibe na tela
         int[][] matrizSomatoria = criarMatrizInteiraComSomatoriaLinhaEColuna(matrizOriginal);
         msg = "Matriz somatoria: \n\n";
-        msg += converterMatrizInteiraParaMsg(matrizSomatoria);
+        msg += converterMatrizParaMsg(matrizSomatoria);
         JOptionPane.showMessageDialog(null, msg);
 
         //Cria duas variaveis para armazenar as somatorias das diagonais da matriz
@@ -33,9 +33,9 @@ public class App {
         //Cria a matriz ordenada com base na matriz original, e exibe as duas na tela
         int[][] matrizOrdenada = ordenarMatriz(matrizOriginal);
         msg = "Matriz original: \n \n";
-        msg += converterMatrizInteiraParaMsg(matrizOriginal) + "\n\n";
+        msg += converterMatrizParaMsg(matrizOriginal) + "\n\n";
         msg += "Matriz original ordenada: \n \n";
-        msg += converterMatrizInteiraParaMsg(matrizOrdenada);
+        msg += converterMatrizParaMsg(matrizOrdenada);
         JOptionPane.showMessageDialog(null, msg);
     }
 
@@ -56,15 +56,18 @@ public class App {
     }
 
     //
-    private static String converterMatrizInteiraParaMsg(int[][] matrizInteira)
+    private static String converterMatrizParaMsg(int[][] matriz)
     {
+        if(matriz == null)
+            return null;
+        
         String msg = "";
 
-        for(int linha = 0; linha < matrizInteira.length; linha += 1)
+        for(int linha = 0; linha < matriz.length; linha += 1)
         {
-            for(int coluna = 0; coluna < matrizInteira[0].length; coluna += 1)
+            for(int coluna = 0; coluna < matriz[0].length; coluna += 1)
             {
-                msg += matrizInteira[linha][coluna] + "   ";
+                msg += matriz[linha][coluna] + "   ";
             }
             msg += "\n";
         }
