@@ -25,6 +25,13 @@ public class App {
         msg += "Somatoria diagonal secundaria = " + somatoriaDiagonalSecundaria + "\n";
         msg += "Soma das somatorias = " + (somatoriaDiagonalPrincipal + somatoriaDiagonalSecundaria);
         JOptionPane.showMessageDialog(null, msg);
+
+        msg = "Matriz original: \n \n";
+        msg += converterMatrizInteiraParaMsg(matrizOriginal) + "\n\n";
+        int[][] matrizOrdenada = ordenarMatriz(matrizOriginal);
+        msg += "Matriz original ordenada: \n \n";
+        msg += converterMatrizInteiraParaMsg(matrizOrdenada);
+        JOptionPane.showMessageDialog(null, msg);
     }
 
     //
@@ -147,14 +154,16 @@ public class App {
         return somatoria;
     }
 
-
+    //
     public static int[][] ordenarMatriz(int[][] matrizOriginal)
     {
+        //O metodo converte a matriz em vetor, ordena o vetor com o algoritmo bubbleSort e por fim converte o vetor ordenado em uma nova matriz
+
         if(matrizOriginal == null)
             return null;
 
         int[] vetorOrdenado = converterMatrizParaVetor(matrizOriginal);
-        //Ordena o vetor usando o algoritimo bubbleSort
+
         for (int linha = 0; linha < (vetorOrdenado.length - 1); linha = linha + 1)
         {
             for (int coluna = 0; coluna < ((vetorOrdenado.length - 1) - linha); coluna = coluna + 1)
@@ -168,10 +177,11 @@ public class App {
             }
         }
 
-        int[][] matrizOrdenada = new int[matrizOriginal.length][matrizOriginal[0].length];
+        int[][] matrizOrdenada = converterVetorParaMatriz(vetorOrdenado, matrizOriginal.length, matrizOriginal[0].length);
+        return matrizOrdenada;
     }
 
-
+    //
     public static int[] converterMatrizParaVetor(int[][] matriz)
     {
         if(matriz == null)
@@ -192,6 +202,7 @@ public class App {
         return vetor;
     }
 
+    //
     public static int[][] converterVetorParaMatriz(int[] vetor, int qtdeLinhas, int qtdeColunas)
     {
         if(vetor == null)
