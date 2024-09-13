@@ -6,7 +6,7 @@ public class App {
     {
         int[][] matrizOriginal = new int[4][4];
 
-        popularMatrizInteira(matrizOriginal);
+        popularMatriz(matrizOriginal);
 
         //Cria a matriz original e exibe na tela
         String msg;
@@ -40,14 +40,17 @@ public class App {
     }
 
     //
-    private static void popularMatrizInteira(int[][] matrizInteira)
+    private static void popularMatriz(int[][] matriz)
     {
+        if(matriz == null)
+            return;
+
         Random randomizador = new Random();
-        for(int linha = 0; linha < matrizInteira.length; linha += 1)
+        for(int linha = 0; linha < matriz.length; linha += 1)
         {
-            for(int coluna = 0; coluna < matrizInteira[0].length; coluna += 1)
+            for(int coluna = 0; coluna < matriz[0].length; coluna += 1)
             {
-                matrizInteira[linha][coluna] = randomizador.nextInt(10, 100);
+                matriz[linha][coluna] = randomizador.nextInt(10, 100);
             }
         }
     }
