@@ -8,27 +8,32 @@ public class App {
 
         popularMatrizInteira(matrizOriginal);
 
+        //Cria a matriz original e exibe na tela
         String msg;
         msg = "Matriz original: \n \n";
         msg += converterMatrizInteiraParaMsg(matrizOriginal);
         JOptionPane.showMessageDialog(null, msg);
 
+        //Cria a matriz somatoria e exibe na tela
         int[][] matrizSomatoria = criarMatrizInteiraComSomatoriaLinhaEColuna(matrizOriginal);
         msg = "Matriz somatoria: \n\n";
         msg += converterMatrizInteiraParaMsg(matrizSomatoria);
         JOptionPane.showMessageDialog(null, msg);
 
+        //Cria duas variaveis para armazenar as somatorias das diagonais da matriz
         int somatoriaDiagonalPrincipal = somarValoresDiagonalPrincipal(matrizOriginal);
         int somatoriaDiagonalSecundaria = somarValoresDiagonalSecundaria(matrizOriginal);
 
+        //Exibe na tela as duas somatorias e a soma das somatorias
         msg = "Somatoria diagonal principal = " + somatoriaDiagonalPrincipal + "\n";
         msg += "Somatoria diagonal secundaria = " + somatoriaDiagonalSecundaria + "\n";
         msg += "Soma das somatorias = " + (somatoriaDiagonalPrincipal + somatoriaDiagonalSecundaria);
         JOptionPane.showMessageDialog(null, msg);
 
+        //Cria a matriz ordenada com base na matriz original, e exibe as duas na tela
+        int[][] matrizOrdenada = ordenarMatriz(matrizOriginal);
         msg = "Matriz original: \n \n";
         msg += converterMatrizInteiraParaMsg(matrizOriginal) + "\n\n";
-        int[][] matrizOrdenada = ordenarMatriz(matrizOriginal);
         msg += "Matriz original ordenada: \n \n";
         msg += converterMatrizInteiraParaMsg(matrizOrdenada);
         JOptionPane.showMessageDialog(null, msg);
@@ -157,7 +162,7 @@ public class App {
     //
     public static int[][] ordenarMatriz(int[][] matrizOriginal)
     {
-        //O metodo converte a matriz em vetor, ordena o vetor com o algoritmo bubbleSort e por fim converte o vetor ordenado em uma nova matriz
+        //Converte a matriz em vetor, ordena o vetor com o algoritmo bubbleSort e por fim converte o vetor ordenado em uma nova matriz
 
         if(matrizOriginal == null)
             return null;
