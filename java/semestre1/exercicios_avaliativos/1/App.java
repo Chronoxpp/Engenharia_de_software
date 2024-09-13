@@ -15,7 +15,7 @@ public class App {
         JOptionPane.showMessageDialog(null, msg);
 
         //Cria a matriz somatoria e exibe na tela
-        int[][] matrizSomatoria = criarMatrizInteiraComSomatoriaLinhaEColuna(matrizOriginal);
+        int[][] matrizSomatoria = criarMatrizComSomatoriaLinhaEColuna(matrizOriginal);
         msg = "Matriz somatoria: \n\n";
         msg += converterMatrizParaMsg(matrizSomatoria);
         JOptionPane.showMessageDialog(null, msg);
@@ -45,6 +45,7 @@ public class App {
         if(matriz == null)
             return;
 
+
         Random randomizador = new Random();
         for(int linha = 0; linha < matriz.length; linha += 1)
         {
@@ -60,7 +61,8 @@ public class App {
     {
         if(matriz == null)
             return null;
-        
+
+
         String msg = "";
 
         for(int linha = 0; linha < matriz.length; linha += 1)
@@ -76,7 +78,7 @@ public class App {
     }
 
     //
-    public static int[][] criarMatrizInteiraComSomatoriaLinhaEColuna(int matrizOriginal[][])
+    public static int[][] criarMatrizComSomatoriaLinhaEColuna(int matrizOriginal[][])
     {
         if(validarMatrizQuadrada(matrizOriginal) == false)
             return null;
