@@ -1,5 +1,4 @@
 import javax.swing.*;
-import java.lang.annotation.Retention;
 import java.util.Random;
 
 public class App {
@@ -154,11 +153,24 @@ public class App {
         if(matrizOriginal == null)
             return null;
 
-        int[] vetorOrdenado = new int[(matrizOriginal.length * matrizOriginal[0].length)];
-
+        int[] vetorOrdenado = converterMatrizParaVetor(matrizOriginal);
+        //Ordena o vetor usando o algoritimo bubbleSort
+        for (int linha = 0; linha < (vetorOrdenado.length - 1); linha = linha + 1)
+        {
+            for (int coluna = 0; coluna < ((vetorOrdenado.length - 1) - linha); coluna = coluna + 1)
+            {
+                if (vetorOrdenado[coluna] > vetorOrdenado[coluna +1])
+                {
+                    int aux = vetorOrdenado[coluna];
+                    vetorOrdenado[coluna] = vetorOrdenado[coluna +1];
+                    vetorOrdenado[coluna +1] = aux;
+                }
+            }
+        }
 
         int[][] matrizOrdenada = new int[matrizOriginal.length][matrizOriginal[0].length];
     }
+
 
     public static int[] converterMatrizParaVetor(int[][] matriz)
     {
