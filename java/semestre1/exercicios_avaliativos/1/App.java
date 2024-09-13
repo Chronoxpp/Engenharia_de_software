@@ -192,6 +192,30 @@ public class App {
         return vetor;
     }
 
+    public static int[][] converterVetorParaMatriz(int[] vetor, int qtdeLinhas, int qtdeColunas)
+    {
+        if(vetor == null)
+            return null;
+
+        if(vetor.length != (qtdeLinhas * qtdeColunas))
+            return null;
+
+
+        int contador = 0;
+        int[][] novaMatriz = new int[qtdeLinhas][qtdeColunas];
+
+        for(int linha = 0; linha < novaMatriz.length; linha += 1)
+        {
+            for(int coluna = 0; coluna < novaMatriz[0].length; coluna += 1)
+            {
+                novaMatriz[linha][coluna] = vetor[contador];
+                contador += 1;
+            }
+        }
+
+        return novaMatriz;
+    }
+
 
 
     public void exibirVetor(int[][] matriz)
