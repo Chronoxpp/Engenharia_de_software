@@ -231,21 +231,4 @@ public class App {
 
         return novaMatriz;
     }
-
-
-
-    public void exibirVetor(int[][] matriz)
-    {
-        String msg = "Matri \n";
-        for (int i = 0; i < matriz.length; i++)
-        {
-            for (int j = 0; j < matriz.length; j++)
-            {
-                msg = msg + matriz[i][j]  + " ";
-            }
-            msg = msg + "\n";
-        }
-
-        JOptionPane.showMessageDialog(null, msg,"Ola", 0);
-    }
 }
