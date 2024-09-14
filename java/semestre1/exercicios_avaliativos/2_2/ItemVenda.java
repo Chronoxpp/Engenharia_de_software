@@ -12,7 +12,12 @@ public class ItemVenda {
     {
         produto.setEstoque((produto.getEstoque() - quantidadeRemovida));
     }
-    
+
+    public double calcularTotal()
+    {
+        return this.produto.getPreco() * (double)this.quantidade;
+    }
+
     public int getQuantidade() {
         return quantidade;
     }
