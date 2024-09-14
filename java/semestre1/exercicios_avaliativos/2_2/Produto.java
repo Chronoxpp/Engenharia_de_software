@@ -10,11 +10,6 @@ public class Produto {
         this.estoque = estoque;
     }
 
-    public void removerEstoque(int quantidadeRemovida)
-    {
-        estoque = (estoque - quantidadeRemovida);
-    }
-
     public String getProduto() {
         return produto;
     }
