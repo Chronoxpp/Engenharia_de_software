@@ -30,6 +30,20 @@ public class Venda {
         return total;
     }
 
+    public void gerarParcelas(int qtdeParcelas)
+    {
+        if(qtdeParcelas == 0)
+            return;
+
+        double valorParcelas = calcularTotal() / (double)qtdeParcelas;
+
+        for(int parcela_i = 1; parcela_i <= qtdeParcelas; parcela_i += 1)
+        {
+            Parcela parcela = new Parcela(parcela_i, valorParcelas);
+            parcelas.add(parcela);
+        }
+    }
+
     public List<ItemVenda> getItens() {
         return itens;
     }
