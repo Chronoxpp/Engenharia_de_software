@@ -23,19 +23,20 @@ public class Sistema {
 
     public String obterNomeProduto()
     {
-        String nome = null;
+        String nome = "";
 
-        while(nome == null)
+        while(nome.length() <= 0)
         {
             nome = JOptionPane.showInputDialog("Digite o nome do produto: ");
 
             if(nome == null)
-            {
-                JOptionPane.showMessageDialog(null, "Tente digitar o nome novamente !!");
-                continue;
-            }
+                return null;
 
             nome = nome.trim();
+            if(nome.length() <= 0)
+            {
+                JOptionPane.showMessageDialog(null, "Tente digitar o nome novamente !!");
+            }
         }
 
         return nome;
