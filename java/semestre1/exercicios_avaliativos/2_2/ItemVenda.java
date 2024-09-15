@@ -13,10 +13,10 @@ public class ItemVenda {
         produto.setEstoque((produto.getEstoque() - quantidadeRemovida));
     }
 
-    public void verificarEstoque() throws ProdutoNaoEncontradoException
+    public void verificarEstoque() throws IllegalArgumentException
     {
         if(this.quantidade > this.produto.getEstoque() || this.produto.getEstoque() <= 0)
-            throw new ProdutoNaoEncontradoException("Quantidade em falta no estoque !!");
+            throw new IllegalArgumentException("Quantidade em falta no estoque !!");
     }
 
     public double calcularTotal()

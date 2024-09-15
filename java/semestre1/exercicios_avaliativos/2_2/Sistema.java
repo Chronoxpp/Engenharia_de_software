@@ -107,7 +107,7 @@ public class Sistema {
         {
             item.verificarEstoque();
         }
-        catch(ProdutoNaoEncontradoException erro)
+        catch(IllegalArgumentException erro)
         {
             JOptionPane.showMessageDialog(null, erro.getMessage());
             return;
