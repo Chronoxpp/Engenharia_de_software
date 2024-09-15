@@ -241,7 +241,7 @@ public class Sistema {
 
         return quantidade;
     }
-    
+
     public int obterQuantidadeEstoqueDoProduto()
     {
         String quantidadeString;
