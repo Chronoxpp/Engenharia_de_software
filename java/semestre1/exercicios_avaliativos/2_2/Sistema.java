@@ -36,6 +36,21 @@ public class Sistema {
     public void realizarVenda()
     {
 
+    public Produto consultarProduto()
+    {
+        String nomePesquisado = obterNomeProduto();
+
+        if(nomePesquisado == null)
+            return null;
+
+        for(Produto produto : produtos)
+        {
+            if(produto.getNome().equals(nomePesquisado))
+                return produto;
+        }
+
+        JOptionPane.showMessageDialog(null, "Nenhum produto com este nome foi encontrado !!");
+        return null;
     }
 
     public void realizarParcelamento(Venda venda)
