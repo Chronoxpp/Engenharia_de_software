@@ -176,13 +176,18 @@ public class Sistema {
             {
                 preco = Double.parseDouble(precoString);
             }
-            catch(Exception e)
+            catch(NumberFormatException erro)
             {
-                JOptionPane.showMessageDialog(null, "Tente digitar o preco novamente !!");
+                JOptionPane.showMessageDialog(null, "Insira apenas numeros !!");
                 continue;
             }
 
-            if(preco <= 0)
+            try
+            {
+                if(preco <= 0)
+                    throw new IllegalArgumentException();
+            }
+            catch(IllegalArgumentException erro)
             {
                 JOptionPane.showMessageDialog(null, "O preco deve ser superior a 0 !!");
                 continue;
