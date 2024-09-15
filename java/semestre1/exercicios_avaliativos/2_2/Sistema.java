@@ -8,7 +8,29 @@ public class Sistema {
 
     public void cadastrarProduto()
     {
-        //Nome produto,valor e estoque
+        String nome = obterNomeProduto();
+        if(nome == null || nome.length() <= 0)
+        {
+            JOptionPane.showMessageDialog(null, "Cadastro cancelado !!");
+            return;
+        }
+
+        int quantidadeEstoque = obterQuantidadeEstoqueDoProduto();
+        if(quantidadeEstoque < 0)
+        {
+            JOptionPane.showMessageDialog(null, "Cadastro cancelado");
+            return;
+        }
+
+        double preco = obterPrecoProduto();
+        if(preco <= 0)
+        {
+            JOptionPane.showMessageDialog(null, "Cadastro cancelado");
+            return;
+        }
+
+        Produto produto = new Produto(nome, preco, quantidadeEstoque);
+        produtos.add(produto);
     }
 
     public void realizarVenda()
