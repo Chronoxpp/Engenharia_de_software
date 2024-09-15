@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 
 public class Sistema {
@@ -143,7 +144,7 @@ public class Sistema {
         }
         catch(ArithmeticException erro)
         {
-            JOptionPane.showMessageDialog(null, "A quantidade deve ser superior 0 !!");
+            JOptionPane.showMessageDialog(null, "A quantidade deve ser superior 0 !!"); //Tratamento pra quando a quantidade de parcelas for 0
             return;
         }
 
@@ -200,8 +201,16 @@ public class Sistema {
             }
             catch(NumberFormatException erro)
             {
-                JOptionPane.showMessageDialog(null, "Insira apenas numeros !!");
-                continue;
+                //Esse segundo try é desnecessario, esta aqui apenas para atender o comando da atividade
+                try
+                {
+                    throw new InputMismatchException();
+                }
+                catch(InputMismatchException erro2)
+                {
+                    JOptionPane.showMessageDialog(null, "Insira apenas numeros !!");
+                    continue;
+                }
             }
 
             try
@@ -254,8 +263,16 @@ public class Sistema {
             }
             catch(IllegalArgumentException erro)
             {
-                JOptionPane.showMessageDialog(null, "O quantidade deve ser superior a 0 !!");
-                continue;
+                //Esse segundo try é desnecessario, esta aqui apenas para atender o comando da atividade
+                try
+                {
+                    throw new InputMismatchException();
+                }
+                catch(InputMismatchException erro2)
+                {
+                    JOptionPane.showMessageDialog(null, "O quantidade deve ser superior a 0 !!");
+                    continue;
+                }
             }
 
             quantidadeValidada = true;
@@ -297,8 +314,16 @@ public class Sistema {
             }
             catch(IllegalArgumentException erro)
             {
-                JOptionPane.showMessageDialog(null, "O quantidade deve ser igual ou superior a 0 !!");
-                continue;
+                //Esse segundo try é desnecessario, esta aqui apenas para atender o comando da atividade
+                try
+                {
+                    throw new InputMismatchException();
+                }
+                catch(InputMismatchException erro2)
+                {
+                    JOptionPane.showMessageDialog(null, "O quantidade deve ser igual ou superior a 0 !!");
+                    continue;
+                }
             }
 
             quantidadeValidada = true;
