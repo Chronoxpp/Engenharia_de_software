@@ -35,6 +35,31 @@ public class Sistema {
 
     public void realizarVenda()
     {
+        Venda venda = new Venda();
+
+        String[] botoes = {"Inserir produto", "Concluir", "Cancelar"};
+
+        boolean sair = false;
+        while(sair == false)
+        {
+            int botaoClicado = JOptionPane.showOptionDialog(null, "Selecione uma ação" , "Venda", 0, 0, null, botoes, 0);
+
+            if(botaoClicado == 0)
+            {
+                inserirItemVenda(venda);
+            }
+            else if(botaoClicado == 1)
+            {
+                concluirVenda(venda);
+                sair = true;
+            }
+            else if(botaoClicado == 2 || botaoClicado < 0)
+            {
+                JOptionPane.showMessageDialog(null, "Venda cancelada !!");
+                sair = true;
+            }
+        }
+    }
 
     public Produto consultarProduto()
     {
@@ -103,11 +128,6 @@ public class Sistema {
         msg += "\nQuantidade de parcelas: " + venda.getParcelas().size();
         msg += "\nValor de cada parcela: " + "R$" + venda.getParcelas().get(0).getValor();
         JOptionPane.showMessageDialog(null, msg);
-    }
-
-    public void realizarParcelamento(Venda venda)
-    {
-
     }
 
     public String obterNomeProduto()
