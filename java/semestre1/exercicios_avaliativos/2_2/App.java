@@ -5,16 +5,26 @@ public class App {
     {
         Sistema sistema = new Sistema();
 
-        String nome = null;
-        nome = sistema.obterNomeProduto();
+        String[] botoes = {"Cadastrar produto", "Vender", "Sair"};
 
-        if(nome != null)
-            JOptionPane.showMessageDialog(null, "Nome: " + nome);
+        boolean sair = false;
+        while(sair == false)
+        {
+            int botaoClicado = JOptionPane.showOptionDialog(null, "Selecione uma ação" , "HOME", 0, 0, null, botoes, 0);
 
-        double preco;
-        preco = sistema.obterPrecoProduto();
-
-        if(preco > 0)
-            JOptionPane.showMessageDialog(null, "Preco: " + preco);
+            if(botaoClicado == 0)
+            {
+                sistema.cadastrarProduto();
+            }
+            else if(botaoClicado == 1)
+            {
+                sistema.realizarVenda();
+            }
+            else if(botaoClicado == 2 || botaoClicado < 0)
+            {
+                JOptionPane.showMessageDialog(null, "Encerrando...");
+                sair = true;
+            }
+        }
     }
 }
