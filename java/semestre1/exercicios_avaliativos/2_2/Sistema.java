@@ -93,13 +93,18 @@ public class Sistema {
         if(quantidade <= 0)
             return;
 
-        if(quantidade > produto.getEstoque())
+        ItemVenda item = new ItemVenda(produto, quantidade);
+
+        try
         {
-            JOptionPane.showMessageDialog(null, "Quantidade em falta no estoque !!");
+            item.verificarEstoque();
+        }
+        catch(ProdutoNaoEncontradoException erro)
+        {
+            JOptionPane.showMessageDialog(null, erro.getMessage());
             return;
         }
 
-        ItemVenda item = new ItemVenda(produto, quantidade);
         venda.getItens().add(item);
         item.removerEstoque(quantidade);
 
