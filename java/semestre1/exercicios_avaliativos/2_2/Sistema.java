@@ -199,6 +199,49 @@ public class Sistema {
         return preco;
     }
 
+    public int obterQuantidade()
+    {
+        String quantidadeString;
+        int quantidade = 0;
+        boolean quantidadeValidada = false;
+
+        while(quantidadeValidada == false)
+        {
+            quantidadeString = JOptionPane.showInputDialog("Digite a quantidade: ");
+
+            if(quantidadeString == null)
+                return -1;
+
+            quantidadeString = quantidadeString.trim();
+            quantidadeString = quantidadeString.replaceAll(",", ".");
+
+            try
+            {
+                quantidade = Integer.parseInt(quantidadeString);
+            }
+            catch(NumberFormatException erro)
+            {
+                JOptionPane.showMessageDialog(null, "Insira apenas numeros !!" + "\n A quantidade não pode ser um numero fracionado !!");
+                continue;
+            }
+
+            try
+            {
+                if(quantidade <= 0)
+                    throw new IllegalArgumentException();
+            }
+            catch(IllegalArgumentException erro)
+            {
+                JOptionPane.showMessageDialog(null, "O quantidade deve ser superior a 0 !!");
+                continue;
+            }
+
+            quantidadeValidada = true;
+        }
+
+        return quantidade;
+    }
+    
     public int obterQuantidadeEstoqueDoProduto()
     {
         String quantidadeString;
@@ -242,46 +285,5 @@ public class Sistema {
         return quantidade;
     }
 
-    public int obterQuantidade()
-    {
-        String quantidadeString;
-        int quantidade = 0;
-        boolean quantidadeValidada = false;
 
-        while(quantidadeValidada == false)
-        {
-            quantidadeString = JOptionPane.showInputDialog("Digite a quantidade: ");
-
-            if(quantidadeString == null)
-                return -1;
-
-            quantidadeString = quantidadeString.trim();
-            quantidadeString = quantidadeString.replaceAll(",", ".");
-
-            try
-            {
-                quantidade = Integer.parseInt(quantidadeString);
-            }
-            catch(NumberFormatException erro)
-            {
-                JOptionPane.showMessageDialog(null, "Insira apenas numeros !!" + "\n A quantidade não pode ser um numero fracionado !!");
-                continue;
-            }
-
-            try
-            {
-                if(quantidade <= 0)
-                    throw new IllegalArgumentException();
-            }
-            catch(IllegalArgumentException erro)
-            {
-                JOptionPane.showMessageDialog(null, "O quantidade deve ser superior a 0 !!");
-                continue;
-            }
-
-            quantidadeValidada = true;
-        }
-
-        return quantidade;
-    }
 }
