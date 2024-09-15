@@ -1,396 +1,354 @@
-import java.util.List;
-
-import javax.swing.JOptionPane;
-import javax.swing.JPopupMenu;
-
-import java.text.DecimalFormat;
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
+import java.util.List;
 
-public class Sistema 
-{
-    List<Produto> produtos = new ArrayList<>();
-    List<Venda> vendas = new ArrayList<>();
-    List<Cliente> clientes = new ArrayList<>();
-    List<Pagamento> pagamentos = new ArrayList<>();
+public class Sistema {
+    private List<Venda> vendas = new ArrayList<>();
+    private List<Produto> produtos = new ArrayList<>();
 
     //
     public void cadastrarProduto()
     {
-        String nomeProduto = obterNomeProduto();
-        double preco = obterPreco();
-        double estoque = obterEstoque();
+        String nome;
+        int quantidadeEstoque;
+        double preco;
 
-        Produto produto = new Produto(nomeProduto, preco, estoque);
+        try
+        {
+            nome = obterNomeProduto();
+            quantidadeEstoque = obterQuantidadeEstoqueDoProduto();
+            preco = obterPrecoProduto();
+        }
+        catch (IllegalArgumentException erro)
+        {
+            JOptionPane.showMessageDialog(null, "Cadastro cancelado !!");
+            return;
+        }
+
+        Produto produto = new Produto(nome, preco, quantidadeEstoque);
         produtos.add(produto);
     }
 
     //
-    private String obterNomeProduto()
+    public String obterNomeProduto()
     {
-        String nomeProduto = "";
+        String nome = "";
 
-        boolean sair = false;
-        while(sair == false)
+        while(nome.length() <= 0)
         {
-            String msg = "Insira o nome do produto";
-            nomeProduto = obterInputUsuario(msg);
+            nome = JOptionPane.showInputDialog("Digite o nome do produto: ");
 
-            if(nomeProduto == null)
+            if(nome == null)
+                throw new IllegalArgumentException();
+
+            nome = nome.trim();
+            if(nome.length() <= 0)
             {
-                JOptionPane.showMessageDialog(null, "Insira um nome !!");
-                sair = false;
-            }
-            else
-            {
-                sair = true;
+                JOptionPane.showMessageDialog(null, "Tente digitar o nome novamente !!");
             }
         }
-        
-        return nomeProduto;
+
+        return nome;
     }
 
     //
-    private double obterPreco()
+    public int obterQuantidadeEstoqueDoProduto()
     {
-        double preco = 0;
+        String quantidadeString;
+        int quantidade = 0;
+        boolean quantidadeValidada = false;
 
-        boolean sair = false;
-        while(sair == false)
+        while(quantidadeValidada == false)
         {
-            String msg = "Insira o preco do produto";
-            String precoString = obterInputUsuario(msg);
+            quantidadeString = JOptionPane.showInputDialog("Digite a quantidade em estoque do produto: ");
+
+            if(quantidadeString == null)
+                throw new IllegalArgumentException();
+
+            quantidadeString = quantidadeString.trim();
+            quantidadeString = quantidadeString.replaceAll(",", ".");
 
             try
             {
-                if(precoString == null)
-                {
-                    throw new InputMismatchException();
-                }   
+                quantidade = Integer.parseInt(quantidadeString);
 
-                preco = Double.parseDouble(precoString);
-
-                if(preco < 0)
-                {
-                    throw new IllegalArgumentException();
-                }
-                
-                sair = true;
-            }
-
-            catch(NumberFormatException erro)
-            {
-                JOptionPane.showMessageDialog(null, "Você deve inserir apenas numeros !!");
-            }
-
-            catch(IllegalArgumentException erro)
-            {
-                JOptionPane.showMessageDialog(null, "O preco deve ser igual ou superior a 0 !!");
-            }
-            
-            catch(InputMismatchException erro)
-            {
-                JOptionPane.showMessageDialog(null, "Você deve inserir um preco !!");
-            }
-        }
-        
-        return preco; 
-    }
-
-    //
-    private double obterEstoque()
-    {
-        double estoque = 0;
-
-        boolean sair = false;
-        while(sair == false)
-        {
-            String msg = "Insira a quantidade no estoque";
-            String estoqueString = obterInputUsuario(msg);
-
-            try
-            {
-                if(estoqueString == null)
-                {
-                    throw new InputMismatchException();
-                }
-
-                estoque = Double.parseDouble(estoqueString);
-                
-                if(estoque < 0)
-                {
-                    throw new IllegalArgumentException();
-                }
-
-                sair = true;
-            }
-            catch(NumberFormatException erro)
-            {
-                JOptionPane.showMessageDialog(null, "Insira apenas numeros !!");
-            }
-            catch(IllegalArgumentException erro)
-            {
-                JOptionPane.showMessageDialog(null, "O estoque deve ser igual ou superior a 0 !!");
-            }
-            catch(InputMismatchException erro)
-            {
-                JOptionPane.showMessageDialog(null, "Você deve inserir uma quantidade !!");
-            }
-        }
-        
-        return estoque;
-    }
-
-    //
-    public String obterInputUsuario(String msg)
-    {
-        String input = JOptionPane.showInputDialog(msg);
-
-        if(input == null)
-        {
-            return null;
-        }
-
-        input = input.trim();
-
-        if(input.equals(""))
-        {
-            return null;
-        }
-        
-        return input;
-    }
-
-    //
-    public void realizarVenda()
-    {
-        if(clientes.isEmpty())
-        {
-            JOptionPane.showMessageDialog(null, "Cadastre algum cliente !!");
-            return;
-        }
-
-        if (produtos.isEmpty()) 
-        {
-            JOptionPane.showMessageDialog(null, "Cadastre algum produto !!");
-            return;
-        }
-
-        Venda venda  = new Venda();
-        JOptionPane.showMessageDialog(null, "Venda iniciada, digite 'Concluir' para concluir a venda");
-
-        boolean vendaConcluida = false;
-        while(vendaConcluida == false)
-        {
-            
-            Produto produto = null;
-
-            boolean sair;
-
-            sair = false;
-            while(sair == false)
-            {
-                String nomeProduto = obterNomeProduto();
-                if (nomeProduto.equalsIgnoreCase("concluir")) 
-                {
-                    Cliente cliente = selecionarCliente();
-                    while(cliente == null)
-                    {
-                        cliente = selecionarCliente();
-                    }
-                    venda.setCliente(cliente);
-
-                    Pagamento pagamento = realizarParcelamento(venda);
-                    exibirDadosPagamento(pagamento);
-
-                    return;
-                }
-
-                produto = selecionarProduto(nomeProduto);
-                if(produto == null)
-                {
-                    JOptionPane.showMessageDialog(null, "O nome digitado esta incorreto ou o produto não existe !!");
-                }
-                else
-                {
-                    sair = true;
-                }
-            }
-
-            sair = false;
-            while(sair == false)
-            {
-
-                double quantidade = obterQuantidade();
-                if(quantidade <= 0)
-                {
-                    JOptionPane.showMessageDialog(null, "A quantidade deve ser superior a 0 !!");
-                }
-                else if(verificarEstoqueDisponivel(produto, quantidade))
-                {
-                    ItemVenda item = new ItemVenda(produto, quantidade);
-                    venda.adicionarItem(item);
-                    produto.setEstoque((produto.getEstoque() - quantidade));
-                    sair = true;
-                }                
-            }
-        }
-    }
-
-    //
-    public Produto selecionarProduto(String nomeProduto)
-    {
-
-        for(Produto produto : produtos)
-        {
-            if(produto.getNome().equalsIgnoreCase(nomeProduto))
-            {
-                return produto;
-            }
-        }
-
-        return null;
-    }
-
-    //
-    private double obterQuantidade()
-    {
-        double quantidade = 0;
-
-        boolean sair = false;
-        while(sair == false)
-        {
-            String msg = "Insira a quantidade";
-            String quantidadeString = obterInputUsuario(msg);
-
-            try
-            {
-                if(quantidadeString == null)
-                {
-                    throw new InputMismatchException();
-                }
-
-                quantidade = Double.parseDouble(quantidadeString);
-                
                 if(quantidade < 0)
-                {
                     throw new IllegalArgumentException();
-                }
-
-                sair = true;
             }
             catch(NumberFormatException erro)
             {
-                JOptionPane.showMessageDialog(null, "Insira apenas numeros !!");
+                JOptionPane.showMessageDialog(null, "Insira apenas numeros !!" + "\n A quantidade não pode ser um numero fracionado !!");
+                continue;
             }
             catch(IllegalArgumentException erro)
             {
-                JOptionPane.showMessageDialog(null, "A quantidade deve ser superior a 0 !!");
+                //Esse segundo try é desnecessario, esta aqui apenas para atender o comando da atividade
+                try
+                {
+                    throw new InputMismatchException();
+                }
+                catch(InputMismatchException erro2)
+                {
+                    JOptionPane.showMessageDialog(null, "O quantidade deve ser igual ou superior a 0 !!");
+                    continue;
+                }
             }
-            catch(InputMismatchException erro)
-            {
-                JOptionPane.showMessageDialog(null, "Você deve inserir uma quantidade !!");
-            }
+
+            quantidadeValidada = true;
         }
-        
+
         return quantidade;
     }
 
-    public boolean verificarEstoqueDisponivel(Produto produto, double quantidadeDesejada)
-    {
-        try
-        {
-            if(produto.getEstoque() < quantidadeDesejada)
-            {
-                throw new ProdutoNaoEncontradoException("Produto sem estoque suficiente !!");
-            }
-        }
-
-        catch(ProdutoNaoEncontradoException erro)
-        {
-            JOptionPane.showMessageDialog(null, erro.getMessage());
-            return false;
-        }
-
-        return true;
-    }
-
     //
-    public Pagamento realizarParcelamento(Venda venda)
+    public double obterPrecoProduto()
     {
-        int quantidadeParcelas = 0;
+        String precoString;
+        double preco = 0;
+        boolean precoValidado = false;
 
-        boolean sair = false;
-        while(sair == false)
+        while(precoValidado == false)
         {
-            quantidadeParcelas = (int) obterQuantidade();
+            precoString = JOptionPane.showInputDialog("Digite o preco do produto: ");
 
-            if(quantidadeParcelas <= 0)
-            {
-                JOptionPane.showMessageDialog(null, "A quantidade de parcelas deve ser superior a 0 !!");
-            }
-            else
-            {
-                sair = true;
-            }
-        }
+            if(precoString == null)
+                throw new IllegalArgumentException();
 
-        Pagamento pagamento = new Pagamento(venda, quantidadeParcelas);
-        pagamentos.add(pagamento);
-        return pagamento;
-    }
+            precoString = precoString.trim();
+            precoString = precoString.replaceAll(",", ".");
 
-    public Cliente selecionarCliente()
-    {
-        String[] clientes = {"Max", "Maximus"};
-
-        boolean sair = false;
-        int opcaoSelecionada = 0;
-        while(sair == false)
-        {
             try
             {
-                opcaoSelecionada = JOptionPane.showOptionDialog(null, "Selecione um cliente", "Clientes", 0, 0, null, clientes, 0);
-                if (opcaoSelecionada < 0) 
-                {
-                    throw new IllegalArgumentException("Index de um cliente inexistente");
-                }
+                preco = Double.parseDouble(precoString);
 
-                sair = true;
+                if(preco <= 0)
+                    throw new IllegalArgumentException();
+
+            }
+            catch(NumberFormatException erro)
+            {
+                //Esse segundo try é desnecessario, esta aqui apenas para atender o comando da atividade
+                try
+                {
+                    throw new InputMismatchException();
+                }
+                catch(InputMismatchException erro2)
+                {
+                    JOptionPane.showMessageDialog(null, "Insira apenas numeros !!");
+                    continue;
+                }
             }
             catch(IllegalArgumentException erro)
             {
-                sair = false;
-                JOptionPane.showMessageDialog(null, "Insira um cliente !");
+                JOptionPane.showMessageDialog(null, "O preco deve ser superior a 0 !!");
+                continue;
             }
-            catch(Exception erro)
-            {
-                sair = false;
-                JOptionPane.showMessageDialog(null, "Tente selecionar um cliente novamente !!!");
-            }
+
+            precoValidado = true;
         }
 
-        Cliente cliente = this.clientes.get(opcaoSelecionada);
+        return preco;
+    }
 
-        return cliente;
+    public void realizarVenda()
+    {
+        Venda venda = new Venda();
+
+        String[] botoes = {"Inserir produto", "Concluir", "Cancelar"};
+
+        boolean sair = false;
+        while(sair == false)
+        {
+            int botaoClicado = JOptionPane.showOptionDialog(null, "Selecione uma ação" , "Venda", 0, 0, null, botoes, 0);
+
+            if(botaoClicado == 0)
+            {
+                inserirItemVenda(venda);
+            }
+            else if(botaoClicado == 1)
+            {
+                concluirVenda(venda);
+                sair = true;
+            }
+            else if(botaoClicado == 2 || botaoClicado < 0)
+            {
+                estornarProdutos(venda);
+                JOptionPane.showMessageDialog(null, "Venda cancelada !!");
+                sair = true;
+            }
+        }
     }
 
     //
-    public void cadastroClientesAutomatico()
+    public void inserirItemVenda(Venda venda)
     {
-        Cliente cliente1 = new Cliente("Max");
-        clientes.add(cliente1);
+        if(venda == null)
+            return;
 
-        Cliente cliente2 = new Cliente("Maximus");
-        clientes.add(cliente2);
+        Produto produto = consultarProduto();
+
+        if(produto == null)
+            return;
+
+        int quantidade;
+
+        try
+        {
+            quantidade = obterQuantidade();
+        }
+        catch(IllegalArgumentException erro)
+        {
+            return;
+        }
+
+        ItemVenda item = new ItemVenda(produto, quantidade);
+
+        try
+        {
+            item.verificarEstoque();
+        }
+        catch(IllegalArgumentException erro)
+        {
+            JOptionPane.showMessageDialog(null, erro.getMessage());
+            return;
+        }
+
+        venda.getItens().add(item);
+        item.removerEstoque(quantidade);
+
+        JOptionPane.showMessageDialog(null, "Produto adicionado" + "\n\nProduto: " + produto.getNome() + "\nQuantidade: " + quantidade);
     }
 
-    public void exibirDadosPagamento(Pagamento pagamento)
+    //
+    public Produto consultarProduto()
     {
-        String msg = "Valor total = " + pagamento.getVenda().calcularTotal() + "\n";
+        String nomePesquisado;
 
-        msg = msg + pagamento.getParcelas().size() + " parcelas de " + pagamento.getParcelas().get(0).getValor() + " cada";
+        try
+        {
+            nomePesquisado = obterNomeProduto();
+        }
+        catch(IllegalArgumentException erro)
+        {
+            return null;
+        }
 
+        for(Produto produto : produtos)
+        {
+            if(produto.getNome().equals(nomePesquisado))
+                return produto;
+        }
+
+        try
+        {
+            throw new ProdutoNaoEncontradoException("Nenhum produto encontrado !!");
+        }
+        catch(ProdutoNaoEncontradoException erro)
+        {
+            JOptionPane.showMessageDialog(null, erro.getMessage());
+            return null;
+        }
+    }
+
+    //
+    public int obterQuantidade()
+    {
+        String quantidadeString;
+        int quantidade = 0;
+        boolean quantidadeValidada = false;
+
+        while(quantidadeValidada == false)
+        {
+            quantidadeString = JOptionPane.showInputDialog("Digite a quantidade: ");
+
+            if(quantidadeString == null)
+                throw new IllegalArgumentException();
+
+            quantidadeString = quantidadeString.trim();
+            quantidadeString = quantidadeString.replaceAll(",", ".");
+
+            try
+            {
+                quantidade = Integer.parseInt(quantidadeString);
+
+                if(quantidade <= 0)
+                    throw new IllegalArgumentException();
+            }
+            catch(NumberFormatException erro)
+            {
+                JOptionPane.showMessageDialog(null, "Insira apenas numeros !!" + "\n A quantidade não pode ser um numero fracionado !!");
+                continue;
+            }
+            catch(IllegalArgumentException erro)
+            {
+                //Esse segundo try é desnecessario, esta aqui apenas para atender o comando da atividade
+                try
+                {
+                    throw new InputMismatchException();
+                }
+                catch(InputMismatchException erro2)
+                {
+                    JOptionPane.showMessageDialog(null, "O quantidade deve ser superior a 0 !!");
+                    continue;
+                }
+            }
+
+            quantidadeValidada = true;
+        }
+
+        return quantidade;
+    }
+
+    //
+    public void concluirVenda(Venda venda)
+    {
+        if(venda == null)
+            return;
+
+        if(venda.getItens().isEmpty())
+            return;
+
+        JOptionPane.showMessageDialog(null, "Digite a quantidade de parcelas");
+        int quantidadeParcelas;
+
+        try
+        {
+            quantidadeParcelas = obterQuantidade();
+            double teste = venda.calcularTotal() / (double)quantidadeParcelas; //Verifica se é possivel realizar a divisao para gerar as parcelas
+        }
+        catch(IllegalArgumentException erro)
+        {
+            JOptionPane.showMessageDialog(null, "A quantidade deve ser superior a 0 !!");
+            return;
+        }
+        catch(ArithmeticException erro)
+        {
+            JOptionPane.showMessageDialog(null, "A quantidade deve ser superior 0 !!"); //Tratamento pra quando a quantidade de parcelas for 0
+            return;
+        }
+
+        venda.gerarParcelas(quantidadeParcelas);
+
+        String msg = "";
+        msg += "Totais: \n\n";
+        msg += "Total da venda: " + "R$" + venda.calcularTotal();
+        msg += "\nQuantidade de parcelas: " + venda.getParcelas().size();
+        msg += "\nValor de cada parcela: " + "R$" + venda.getParcelas().get(0).getValor();
         JOptionPane.showMessageDialog(null, msg);
+    }
+
+    private void estornarProdutos(Venda venda)
+    {
+        if(venda == null)
+            return;
+
+        if(venda.getItens().isEmpty())
+            return;
+
+        for(ItemVenda item : venda.getItens())
+        {
+            item.getProduto().adicionarEstoque(item.getQuantidade());
+        }
     }
 }

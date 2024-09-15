@@ -1,28 +1,26 @@
-public class Parcela 
-{
-    int ID;
-    double valor;
+public class Parcela {
+    private double valor;
+    private int ID;
 
-    Parcela(int ID, double valor)
+    public Parcela(int ID, double valor)
     {
         this.ID = ID;
         this.valor = valor;
     }
 
-    public int getID() 
-    {
-        return ID;
-    }
-    public void setID(int iD) 
-    {
-        ID = iD;
-    }
-    public double getValor() 
-    {
+    public double getValor() {
         return valor;
     }
-    public void setValor(double valor) 
-    {
+
+    public void setValor(double valor) {
         this.valor = valor;
+    }
+
+    public int getID() {
+        return ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
     }
 }

@@ -1,44 +1,41 @@
-public class Produto
-{
+public class Produto {
     private String nome;
     private double preco;
-    private double estoque;
+    private int estoque;
 
-    Produto(String nome, double preco, double estoque)
+    public Produto(String produto, double preco, int estoque)
     {
-        this.nome = nome;
+        this.nome = produto;
         this.preco = preco;
         this.estoque = estoque;
     }
 
-    public String getNome() 
+    public void adicionarEstoque(int quantidade)
     {
+        this.estoque += quantidade;
+    }
+
+    public String getNome() {
         return nome;
     }
 
-    public void setNome(String nome) 
-    {
-        this.nome = nome;
+    public void setNome(String produto) {
+        this.nome = produto;
     }
 
-    public double getPreco() 
-    {
-        return preco;
-    }
-
-    public void setPreco(double preco) 
-    {
-
-        this.preco = preco;
-    }
-
-    public double getEstoque()
-     {
+    public int getEstoque() {
         return estoque;
     }
 
-    public void setEstoque(double estoque) 
-    {
+    public void setEstoque(int estoque) {
         this.estoque = estoque;
+    }
+
+    public double getPreco() {
+        return preco;
+    }
+
+    public void setPreco(double preco) {
+        this.preco = preco;
     }
 }

@@ -1,36 +1,42 @@
-public class ItemVenda 
-{
+public class ItemVenda {
     private Produto produto;
-    private double quantidade;
+    private int quantidade;
 
-    ItemVenda(Produto produto, double quantidade)
+    public ItemVenda(Produto produto, int quantidade)
     {
         this.produto = produto;
         this.quantidade = quantidade;
     }
 
-    public void setProduto(Produto produto) 
+    public void removerEstoque(int quantidadeRemovida)
     {
-        this.produto = produto;
+        produto.setEstoque((produto.getEstoque() - quantidadeRemovida));
     }
 
-    public Produto getProduto()
+    public void verificarEstoque() throws IllegalArgumentException
     {
-        return this.produto;
+        if(this.quantidade > this.produto.getEstoque() || this.produto.getEstoque() <= 0)
+            throw new IllegalArgumentException("Quantidade em falta no estoque !!");
     }
 
     public double calcularTotal()
     {
-        return produto.getPreco() * quantidade;
+        return this.produto.getPreco() * (double)this.quantidade;
     }
 
-    public double getQuantidade() 
-    {
+    public int getQuantidade() {
         return quantidade;
     }
 
-    public void setQuantidade(double quantidade)
-    {
+    public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;
+    }
+
+    public Produto getProduto() {
+        return produto;
+    }
+
+    public void setProduto(Produto produto) {
+        this.produto = produto;
     }
 }

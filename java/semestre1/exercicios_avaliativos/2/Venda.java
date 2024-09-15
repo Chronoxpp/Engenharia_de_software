@@ -1,57 +1,70 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Venda
-{
-    Cliente cliente;
-    List<ItemVenda> itens = new ArrayList<>();
+public class Venda {
+    private List<ItemVenda> itens = new ArrayList<>();
+    private List<Parcela> parcelas = new ArrayList<>();
 
-    Venda()
-    {}
-
-    Venda(Cliente cliente)
+    public Venda(List<ItemVenda> itens, List<Parcela> parcelas)
     {
-        this.cliente = cliente;
+        this.itens = itens;
+        this.parcelas = parcelas;
     }
 
-    public void adicionarItem(ItemVenda item)
+    public Venda(List<ItemVenda> itens)
     {
-        itens.add(item);
+        this.itens = itens;
     }
 
-    public void removerItem(ItemVenda item)
-    {
-        itens.remove(item);
-    }
+    public Venda(){};
 
     public double calcularTotal()
     {
-        double valorTotal = 0;
+        if(itens.isEmpty())
+            return 0;
+
+        double total = 0;
         for(ItemVenda item : itens)
         {
-            valorTotal += item.calcularTotal();
+            total += item.calcularTotal();
         }
 
-        return valorTotal;
+        return total;
     }
 
-    public Cliente getCliente() 
+    public void gerarParcelas(int qtdeParcelas)
     {
-        return cliente;
+        double valorParcelas;
+
+        try
+        {
+            valorParcelas = calcularTotal() / (double)qtdeParcelas;
+        }
+        catch(ArithmeticException erro)
+        {
+            return;
+        }
+
+        for(int parcela_i = 1; parcela_i <= qtdeParcelas; parcela_i += 1)
+        {
+            Parcela parcela = new Parcela(parcela_i, valorParcelas);
+            parcelas.add(parcela);
+        }
     }
 
-    public void setCliente(Cliente cliente) 
-    {
-        this.cliente = cliente;
-    }
-
-    public List<ItemVenda> getItens() 
-    {
+    public List<ItemVenda> getItens() {
         return itens;
     }
 
-    public void setItens(List<ItemVenda> itens)
-    {
+    public void setItens(List<ItemVenda> itens) {
         this.itens = itens;
+    }
+
+    public List<Parcela> getParcelas() {
+        return parcelas;
+    }
+
+    public void setParcelas(List<Parcela> parcelas) {
+        this.parcelas = parcelas;
     }
 }
