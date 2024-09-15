@@ -20,7 +20,7 @@ public class Venda {
 
     public double calcularTotal()
     {
-        if(itens.isEmpty() == false)
+        if(itens.isEmpty())
             return 0;
 
         double total = 0;
