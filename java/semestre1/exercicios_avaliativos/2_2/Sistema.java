@@ -219,13 +219,18 @@ public class Sistema {
             {
                 quantidade = Integer.parseInt(quantidadeString);
             }
-            catch(Exception e)
+            catch(NumberFormatException erro)
             {
-                JOptionPane.showMessageDialog(null, "Tente digitar a quantidade novamente !!" + "\n A quantidade não pode ser um numero fracionado !!");
+                JOptionPane.showMessageDialog(null, "Insira apenas numeros !!" + "\n A quantidade não pode ser um numero fracionado !!");
                 continue;
             }
 
-            if(quantidade < 0)
+            try
+            {
+                if(quantidade < 0)
+                    throw new IllegalArgumentException();
+            }
+            catch(IllegalArgumentException erro)
             {
                 JOptionPane.showMessageDialog(null, "O quantidade deve ser igual ou superior a 0 !!");
                 continue;
