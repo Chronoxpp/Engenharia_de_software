@@ -10,5 +10,11 @@ public class App {
 
         if(nome != null)
             JOptionPane.showMessageDialog(null, "Nome: " + nome);
+
+        double preco;
+        preco = sistema.obterPrecoProduto();
+
+        if(preco > 0)
+            JOptionPane.showMessageDialog(null, "Preco: " + preco);
     }
 }
