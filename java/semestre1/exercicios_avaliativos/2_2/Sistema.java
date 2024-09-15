@@ -81,6 +81,30 @@ public class Sistema {
         JOptionPane.showMessageDialog(null, "Produto adicionado" + "\n\nProduto: " + produto.getNome() + "\nQuantidade: " + quantidade);
     }
 
+    public void concluirVenda(Venda venda)
+    {
+        if(venda == null)
+            return;
+
+        if(venda.getItens().isEmpty())
+            return;
+
+        JOptionPane.showMessageDialog(null, "Digite a quantidade de parcelas na proxima seção");
+        int quantidade = obterQuantidade();
+
+        if(quantidade <= 0)
+            return;
+
+        venda.gerarParcelas(quantidade);
+
+        String msg = "";
+        msg += "Totais: \n\n";
+        msg += "Total da venda: " + "R$" + venda.calcularTotal();
+        msg += "\nQuantidade de parcelas: " + venda.getParcelas().size();
+        msg += "\nValor de cada parcela: " + "R$" + venda.getParcelas().get(0).getValor();
+        JOptionPane.showMessageDialog(null, msg);
+    }
+
     public void realizarParcelamento(Venda venda)
     {
 
