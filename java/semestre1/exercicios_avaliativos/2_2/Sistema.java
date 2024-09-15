@@ -79,4 +79,42 @@ public class Sistema {
 
         return preco;
     }
+
+    public int obterQuantidadeEstoqueDoProduto()
+    {
+        String quantidadeString;
+        int quantidade = 0;
+        boolean quantidadeValidada = false;
+
+        while(quantidadeValidada == false)
+        {
+            quantidadeString = JOptionPane.showInputDialog("Digite a quantidade em estoque do produto: ");
+
+            if(quantidadeString == null)
+                return -1;
+
+            quantidadeString = quantidadeString.trim();
+            quantidadeString = quantidadeString.replaceAll(",", ".");
+
+            try
+            {
+                quantidade = Integer.parseInt(quantidadeString);
+            }
+            catch(Exception e)
+            {
+                JOptionPane.showMessageDialog(null, "Tente digitar a quantidade novamente !!" + "\n A quantidade não pode ser um numero fracionado !!");
+                continue;
+            }
+
+            if(quantidade < 0)
+            {
+                JOptionPane.showMessageDialog(null, "O quantidade deve ser igual ou superior a 0 !!");
+                continue;
+            }
+
+            quantidadeValidada = true;
+        }
+
+        return quantidade;
+    }
 }
