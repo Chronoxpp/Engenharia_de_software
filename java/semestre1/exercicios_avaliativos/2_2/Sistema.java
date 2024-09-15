@@ -173,6 +173,7 @@ public class Sistema {
             }
             else if(botaoClicado == 2 || botaoClicado < 0)
             {
+                estornarProdutos(venda);
                 JOptionPane.showMessageDialog(null, "Venda cancelada !!");
                 sair = true;
             }
@@ -335,5 +336,19 @@ public class Sistema {
         msg += "\nQuantidade de parcelas: " + venda.getParcelas().size();
         msg += "\nValor de cada parcela: " + "R$" + venda.getParcelas().get(0).getValor();
         JOptionPane.showMessageDialog(null, msg);
+    }
+
+    private void estornarProdutos(Venda venda)
+    {
+        if(venda == null)
+            return;
+
+        if(venda.getItens().isEmpty())
+            return;
+
+        for(ItemVenda item : venda.getItens())
+        {
+            item.getProduto().adicionarEstoque(item.getQuantidade());
+        }
     }
 }
