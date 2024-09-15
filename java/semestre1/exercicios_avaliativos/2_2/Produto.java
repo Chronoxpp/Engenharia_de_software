@@ -1,21 +1,21 @@
 public class Produto {
-    private String produto;
+    private String nome;
     private double preco;
     private int estoque;
 
     public Produto(String produto, double preco, int estoque)
     {
-        this.produto = produto;
+        this.nome = produto;
         this.preco = preco;
         this.estoque = estoque;
     }
 
-    public String getProduto() {
-        return produto;
+    public String getNome() {
+        return nome;
     }
 
-    public void setProduto(String produto) {
-        this.produto = produto;
+    public void setNome(String produto) {
+        this.nome = produto;
     }
 
     public int getEstoque() {
