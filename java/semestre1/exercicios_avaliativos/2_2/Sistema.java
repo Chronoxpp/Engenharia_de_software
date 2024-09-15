@@ -117,4 +117,42 @@ public class Sistema {
 
         return quantidade;
     }
+
+    public int obterQuantidade()
+    {
+        String quantidadeString;
+        int quantidade = 0;
+        boolean quantidadeValidada = false;
+
+        while(quantidadeValidada == false)
+        {
+            quantidadeString = JOptionPane.showInputDialog("Digite a quantidade: ");
+
+            if(quantidadeString == null)
+                return -1;
+
+            quantidadeString = quantidadeString.trim();
+            quantidadeString = quantidadeString.replaceAll(",", ".");
+
+            try
+            {
+                quantidade = Integer.parseInt(quantidadeString);
+            }
+            catch(Exception e)
+            {
+                JOptionPane.showMessageDialog(null, "Tente digitar a quantidade novamente !!" + "\n A quantidade não pode ser um numero fracionado !!");
+                continue;
+            }
+
+            if(quantidade <= 0)
+            {
+                JOptionPane.showMessageDialog(null, "O quantidade deve ser superior a 0 !!");
+                continue;
+            }
+
+            quantidadeValidada = true;
+        }
+
+        return quantidade;
+    }
 }
