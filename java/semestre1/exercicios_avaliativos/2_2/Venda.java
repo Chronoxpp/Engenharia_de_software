@@ -34,10 +34,16 @@ public class Venda {
 
     public void gerarParcelas(int qtdeParcelas)
     {
-        if(qtdeParcelas == 0)
-            return;
+        double valorParcelas;
 
-        double valorParcelas = calcularTotal() / (double)qtdeParcelas;
+        try
+        {
+            valorParcelas = calcularTotal() / (double)qtdeParcelas;
+        }
+        catch(ArithmeticException erro)
+        {
+            return;
+        }
 
         for(int parcela_i = 1; parcela_i <= qtdeParcelas; parcela_i += 1)
         {

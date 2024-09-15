@@ -126,11 +126,26 @@ public class Sistema {
         if(venda.getItens().isEmpty())
             return;
 
-        JOptionPane.showMessageDialog(null, "Digite a quantidade de parcelas na proxima seção");
+        JOptionPane.showMessageDialog(null, "Digite a quantidade de parcelas");
         int quantidade = obterQuantidade();
 
-        if(quantidade <= 0)
+        try
+        {
+            if(quantidade < 0)
+                throw new IllegalArgumentException();
+
+            double teste = venda.calcularTotal() / (double)quantidade; //Verifica se é possivel realizar a divisao para gerar as parcelas
+        }
+        catch(IllegalArgumentException erro)
+        {
+            JOptionPane.showMessageDialog(null, "A quantidade deve ser superior a 0 !!");
             return;
+        }
+        catch(ArithmeticException erro)
+        {
+            JOptionPane.showMessageDialog(null, "A quantidade deve ser superior 0 !!");
+            return;
+        }
 
         venda.gerarParcelas(quantidade);
 
