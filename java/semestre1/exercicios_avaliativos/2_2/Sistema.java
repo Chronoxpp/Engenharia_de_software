@@ -74,8 +74,15 @@ public class Sistema {
                 return produto;
         }
 
-        JOptionPane.showMessageDialog(null, "Nenhum produto com este nome foi encontrado !!");
-        return null;
+        try
+        {
+            throw new ProdutoNaoEncontradoException("Nenhum produto encontrado !!");
+        }
+        catch(ProdutoNaoEncontradoException erro)
+        {
+            JOptionPane.showMessageDialog(null, erro.getMessage());
+            return null;
+        }
     }
 
     public void inserirItemVenda(Venda venda)
