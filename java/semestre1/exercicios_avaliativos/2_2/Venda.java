@@ -16,6 +16,8 @@ public class Venda {
         this.itens = itens;
     }
 
+    public Venda(){};
+
     public double calcularTotal()
     {
         if(itens.isEmpty() == false)
