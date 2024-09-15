@@ -53,6 +53,34 @@ public class Sistema {
         return null;
     }
 
+    public void inserirItemVenda(Venda venda)
+    {
+        if(venda == null)
+            return;
+
+        Produto produto = consultarProduto();
+
+        if(produto == null)
+            return;
+
+        int quantidade = obterQuantidade();
+
+        if(quantidade <= 0)
+            return;
+
+        if(quantidade > produto.getEstoque())
+        {
+            JOptionPane.showMessageDialog(null, "Quantidade em falta no estoque !!");
+            return;
+        }
+
+        ItemVenda item = new ItemVenda(produto, quantidade);
+        venda.getItens().add(item);
+        item.removerEstoque(quantidade);
+
+        JOptionPane.showMessageDialog(null, "Produto adicionado" + "\n\nProduto: " + produto.getNome() + "\nQuantidade: " + quantidade);
+    }
+
     public void realizarParcelamento(Venda venda)
     {
 
