@@ -10,6 +10,11 @@ public class Produto {
         this.estoque = estoque;
     }
 
+    public void adicionarEstoque(int quantidade)
+    {
+        this.estoque += quantidade;
+    }
+
     public String getNome() {
         return nome;
     }
