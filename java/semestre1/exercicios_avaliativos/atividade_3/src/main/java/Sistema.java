@@ -41,7 +41,7 @@ public class Sistema {
         }
         catch(IllegalArgumentException erro) //Erro quando o usuario fornece dados identificados como invalidos
         {
-            lbl.setText("Não é um triangulo");
+            lbl.setText("Não é um \ntriangulo");
         }
         catch(Exception erro) //Erro qualquer é tratado aqui caso os outro catch nao o capturem
         {
