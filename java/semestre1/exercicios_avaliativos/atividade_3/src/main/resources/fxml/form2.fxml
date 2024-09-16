@@ -4,16 +4,34 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="260.0" prefWidth="416.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Sistema">
    <children>
-      <Button layoutX="141.0" layoutY="170.0" mnemonicParsing="false" onAction="#handleBotaoAction" text="Verificar" />
-      <Label layoutX="36.0" layoutY="35.0" prefHeight="25.0" prefWidth="60.0" text="Lado 1" />
-      <Label layoutX="36.0" layoutY="78.0" prefHeight="25.0" prefWidth="60.0" text="Lado 2" />
-      <Label layoutX="36.0" layoutY="119.0" prefHeight="25.0" prefWidth="60.0" text="Lado 3" />
-      <TextField layoutX="96.0" layoutY="35.0" />
-      <TextField layoutX="96.0" layoutY="78.0" />
-      <TextField layoutX="96.0" layoutY="119.0" />
-      <Label alignment="CENTER" layoutX="272.0" layoutY="51.0" prefHeight="80.0" prefWidth="105.0" text="Triangulo" />
+      <Button fx:id="botao" layoutX="141.0" layoutY="170.0" mnemonicParsing="false" onAction="#handleBotaoAction" prefHeight="31.0" prefWidth="69.0" text="Verificar" textFill="#090cd3" />
+      <Label layoutX="36.0" layoutY="35.0" prefHeight="25.0" prefWidth="60.0" text="Lado 1">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label layoutX="36.0" layoutY="78.0" prefHeight="25.0" prefWidth="60.0" text="Lado 2">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label layoutX="36.0" layoutY="119.0" prefHeight="25.0" prefWidth="60.0" text="Lado 3">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <TextField fx:id="txt1" layoutX="96.0" layoutY="35.0" />
+      <TextField fx:id="txt2" layoutX="96.0" layoutY="78.0" />
+      <TextField fx:id="txt3" layoutX="96.0" layoutY="119.0" />
+      <Label fx:id="lbl" alignment="CENTER" layoutX="255.0" layoutY="39.0" prefHeight="105.0" prefWidth="149.0" textFill="#090cd3">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+      <Label layoutX="264.0" layoutY="14.0" prefHeight="25.0" prefWidth="69.0" text="Triangulo:" textFill="#090cd3">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

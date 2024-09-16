@@ -6,14 +6,10 @@ public class Triangulo
     public String montarTringulo(double lado1, double lado2, double lado3)
     {
         if(lado1 < 1 || lado2 < 1 || lado3 < 1)
-        {
-            return null;
-        }
+            throw new IllegalArgumentException();
 
         if(lado1 > (lado2 + lado3))
-        {
-            return null;
-        }
+            throw new IllegalArgumentException();
 
         if(lado1 == lado2 && lado1 == lado3)
         {
