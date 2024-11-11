@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primeiro formulario</title>
+
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+    <h2>criar seu cadastro</h2>
+    <p>veja seus pedidos de forma fácil, compre mais rápido e tenha uma<br/> experiência personalizada :)</p>
+
+    <div class="cadastro">
+        <form name="cadastro" action="" method="">
+
+            <label for="nome">Nome: </label><br>
+            <input type="text" name="nome" id="nome" required/>
+
+            <br><br>
+
+            <label for="apelido"> Apelido: </label><br>
+            <input type="text" name="apelido" id="apelido" required/>
+
+            <br><br>    
+
+            <label>Genero: </label><br>
+            <small>pra gente te conhecer um pouquinho melhor :)</small><br>
+            <input type="radio" name="genero" id="masculino" value="masculino">
+            <label for="masculino"> masculino</label>
+            <input type="radio" name="genero" id="feminino" value="feminino">
+            <label for="feminino"> feminino</label>
+            <input type="radio" name="genero" id="nao informar" value="nao informar">
+            <label for="nao informar"> nao informar</label>
+
+            <br><br>
+
+            <label for="data de nascimento">Data de Nascimento: </label><br>
+            <small>necessário pra identificar a maioridade, no formato DD/MM/AAAA</small><br>
+            <input type="text" name="data de nascimento" id="data de nascimento" size="10" maxlength="10" placeholder="__/__/____" pattern="\d{2}/\d{2}/\d{4}" required> 
+
+            <br><br>
+
+            <label for="cpf">CPF: </label><br>
+            <small>necessário pra emissão das Notas Fiscais</small><br>
+            <input type="text" name="cpf" id="cpf"  size="14" maxlength="14" placeholder="___.___.___-__" pattern="\d{3}.\d{3}.\d{3}-\d{2}" required><br>
+            <a href="">é uma pessoa juridica?</a>
+
+            <br><br>
+
+            <label for="telefone">Telefone: </label><br>
+            <small>caso a gente precise entrar em contato sobre seus pedidos</small><br>
+            <input type="text" name="telefone" id="telefone" size="15" maxlength="15" placeholder="(__) _____-____" pattern="(\d{2}\) \d{5}\-\d{4}" required>
+            <br>
+            <input type="checkbox" name="sms" id="sms">
+            <label for="sms">Receber mensagem via SMS</label>
+
+            <br><br>
+
+            <label for="email">Email: </label><br>
+            <small>informe um e-mail válido. Você vai precisar ativar sua conta depois de criar seu cadastro</small><br>
+            <input type="email" name="email" id="email" required>
+            <br>
+            <input type="checkbox" name="e-mails promocionais" id="e-mails promocionais">
+            <label for="e-mails promocionais">Receber e-mails promocionais</label>
+
+            <br><br>
+
+            <label for="senha">senha: </label><br>
+            <small>precisa ter entre 6 e 20 caracteres</small><br>
+            <input type="password" name="senha" id="senha" required>
+            <br>
+            <input type="checkbox" name="compartilhar dados" id="compartilhar dados">
+            <label for="compartilhar dados">compartilhar meus dados com parceiros para ter conteúdos personalizados</label>
+
+            <br><br>
+
+            <button type="submit"> criar o seu cadastro</button>
+        </form>
+    </div>
+
+    <p>Não se preocupe, nosso site é seguro! Ao criar o seu cadastro,<br> você concorda com a nossa <a href="">Política de Privacidade</a></p>
+
+    <p>já tem cadastro? <a href="google.com">entrar</a></p>
+</body>
+</html>

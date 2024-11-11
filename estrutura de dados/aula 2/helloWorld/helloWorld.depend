@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1729812364 source:e:\backup\aulas\estrutura de dados\aula 2\helloworld\main.c
+	<stdio.h>
+	<stdlib.h>
+

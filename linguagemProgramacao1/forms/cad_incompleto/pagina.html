@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Título do Documento</title>
+    <link rel="stylesheet" href="estilo.css" />
+</head>
+<body>
+    <form name="formulario" method="post" action="formulario.php">
+        <label for="inome">Rótulo</label>
+        <input type="text" name="nome" id="inome" maxlength="15" size="20" required placeholder="Digite seu nome" />
+        <label for="itermo">Termo</label>
+        <input type="checkbox" class="termos" name="termo" id="itermo">
+        <input type="radio" name="sexo" id="masculino">
+        <input type="radio" name="sexo" id="feminino">
+        <input type="radio" name="sexo" id="indefinido"> 
+        <input type="submit" value="Enviar" />
+    </form>
+</body>
+</html>

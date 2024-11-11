@@ -1,0 +1,37 @@
+pesquisa sequencia: busca uma chave, comparando o valor com cada item da lista em sequencia. Caso ache o valor, para a busca.
+O pior caso da pesquisa sequencial é N, o melhor é 1.  
+___
+Pesquisa binaria: precisa de uma lista ordenada, usa 3 variaveis para mover de forma a otimizar a busca
+- inicio: valor do primeiro item
+- fim: valor do ultimo item da lista
+- div2: valor do item na posicao qtdeItensLista/2
+
+inicio <= fim mantem o loop. Durante a comparacao ele verifica se o DADO = posicaoMeio, caso nao verifica se DADO < posicaoMeio ou DADO > posicaoMeio 
+___
+Ordenacao por troca: buuble sort e quicksort
+___
+Ordenção bubble sort: 
+
+Ordenamento interno: manipulacao direta da lista e ordenacao na memoria RAM
+
+___
+Exercicio:
+[25,48,37,12,57,86,33,92]
+1) Realize a ordenacao do vetor utilizando o metodo bubble sort. Quantas operacoes criticas(comparacoes + trocas) foram necessarias?
+[25,37<->48,12,57,86,33,92] 2c 1t
+[25,37,12,48,57,86,33,92] 1c 1t
+[25,37,12,48,57,33,86,92] 3c 1t
+[25,37,12,48,57,33,86,92] 1c 0t
+[25,37,12
+
+
+
+[25,37,48,12,57,86,33,92] 2 comp 1 troc
+[25,37,12,48,57,86,33,92] 
+
+
+
+[25,48,37,12,57,86,33,92] 1 comparacao 0 trocas
+[25,37,48,12,57,86,33,92] 1 comp 1 troca
+[25,37,12,48,57,86,33,92] 1 comp 1 troca
+[25,37,12,

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comecando javaScript</title>
+    <script>
+        function mostrarNome(event)
+        {
+            event.preventDefault();
+
+            let nome = document.getElementById("nome").value;
+            document.getElementById("resposta").textContent = ("Nome = " + nome)
+        }
+
+        function validarDados()
+        {
+            let nome = document.getElementById("nome").value;
+            let idade = document.getElementById("idade").value;
+            let email = document.getElementById("email").value;
+
+            if (isNaN(idade) || idade.trim() === "")
+            {
+                document.getElementById("resultadoValidacao").textContent = nome + " " + idade + " " + email;
+            }
+            else
+            {
+                document.getElementById("resultadoValidacao").textContent = "Insira os dados corretamente !!";
+            }
+        }
+    </script>
+</head>
+<body>
+    <!-- <form onsubmit="mostrarNome(event)" >
+        <input type="text" name="nome" id="nome">
+    </form> -->
+
+    <form onsubmit="event.preventDefault(); validarDados()">
+        <label>
+            Nome
+            <input type="text" id="nome" required placeholder="Insira seu nome">
+        </label>
+        <br>
+        <label>
+            Idade
+            <input type="number" id="idade" required placeholder="Insira sua idade">
+        </label>
+        <br>
+        <label>
+            Email
+            <input type="email" id="email" required placeholder="Insira seu email">
+        </label>
+        <br>
+
+        <button type="submit">Enviar</button>
+    </form>
+
+    <h3>title of page</h3>
+    <div name="frame" id="frame">
+    </div>
+    <h4>end of page</h4>
+
+    <script src="scripts/nome.js"></script>
+    <script>
+        for(let i = 0; i<10; i++){
+            console.log(i);
+        }
+
+        let dez = 10;
+        if(dez >= 10)
+        {
+            document.write(dez);
+        }
+    </script>
+    <p id="resposta"></p>
+    <h1 id="resultadoValidacao"></h1>
+</body>
+</html>

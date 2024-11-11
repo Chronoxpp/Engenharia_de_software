@@ -1,0 +1,14 @@
+body {
+    text-align: center;
+}
+
+.cadastro {
+    background-color: 00FF00;
+    border: 1px solid black;
+    margin-left: 30%;
+    margin-right: 30%;
+}
+
+small {
+    color: lightslategray;
+}

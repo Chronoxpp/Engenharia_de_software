@@ -1,0 +1,4 @@
+O que é DOM?
+Porque o script.js deve ficar ao fim do <bodey> ?
+Python e PHP, sao tanto interpretadas quanto compilados?
+O que é e como funciona RegExp

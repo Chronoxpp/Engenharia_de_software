@@ -1,0 +1,134 @@
+o que é a IDE codeblock?
+o que é o padrao ANSI?
+cite 4 livros sobre C
+
+x 0
+y 11
+z 10
+
+
+
+para o projeto integrador: buscar por situações ou problematicas
+
+Ordem Sugerida para os Tópicos (do básico ao avançado)
+Lógica de Programação
+Algoritmos e Estruturas de Dados
+Paradigmas de Programação (Funcional, Orientado a Objetos, etc.)
+Controle de Qualidade e Garantia de Qualidade
+Versionamento de Código (Git, GitHub)
+Desenvolvimento Frontend (HTML, CSS, JavaScript)
+Frameworks Frontend (React, Angular, Vue)
+Desenvolvimento Backend (Node.js, Python, Java, etc.)
+Bancos de Dados Relacionais (SQL)
+Bancos de Dados NoSQL
+Testes de Software (Unitários, Integração, etc.)
+Princípios SOLID
+Padrões de Projeto (Design Patterns)
+TDD (Test-Driven Development)
+Refatoração de Código
+Metodologias Ágeis (Scrum, Kanban)
+Engenharia de Requisitos
+Otimização de Algoritmos
+Otimização de Performance
+Arquitetura de Software
+Arquitetura de Software Limpa (Clean Architecture)
+DevOps e CI/CD
+Automação de Testes
+Microserviços
+RESTful e APIs
+Programação Assíncrona
+Arquitetura de Eventos
+Mensageria (RabbitMQ, Kafka, etc.)
+Cloud Computing (AWS, Azure, Google Cloud)
+Docker e Containers
+Kubernetes e Orquestração de Containers
+Sistemas Distribuídos
+Escalabilidade e Tolerância a Falhas
+Segurança em Aplicações
+Sistemas de Recomendação
+Segurança em Redes e Protocolos
+Machine Learning e IA
+Big Data
+Programação Reativa
+Integração Contínua e Entrega Contínua (CI/CD)
+Uso de APIs de Terceiros
+Desenvolvimento Mobile (Android, iOS, React Native, etc.)
+UI/UX Design
+Criação de Pipelines de Dados
+Websockets e Comunicação em Tempo Real
+PostgreSQL e SQL Performance
+Programação em Rust e C++
+Arquitetura Monolítica x Microserviços
+Sistemas Operacionais
+Engenharia de Dados (Big Data, Pipelines, etc.)
+Ordem Sugerida para os Livros
+The Pragmatic Programmer – Andrew Hunt & David Thomas
+Clean Code – Robert C. Martin
+You Don’t Know JS (series) – Kyle Simpson
+Eloquent JavaScript – Marijn Haverbeke
+JavaScript: The Good Parts – Douglas Crockford
+Effective Java – Joshua Bloch
+Cracking the Coding Interview – Gayle Laakmann McDowell
+Grokking Algorithms – Aditya Bhargava
+Introduction to Algorithms – Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein
+Design Patterns: Elements of Reusable Object-Oriented Software – Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides
+Refactoring: Improving the Design of Existing Code – Martin Fowler
+The Clean Coder – Robert C. Martin
+Test Driven Development: By Example – Kent Beck
+Effective Python – Brett Slatkin
+Head First Design Patterns – Eric Freeman, Elisabeth Robson
+Code Complete – Steve McConnell
+Continuous Delivery – Jez Humble, David Farley
+Working Effectively with Legacy Code – Michael Feathers
+Domain-Driven Design – Eric Evans
+Patterns of Enterprise Application Architecture – Martin Fowler
+The Mythical Man-Month – Frederick P. Brooks Jr.
+Building Microservices – Sam Newman
+The Art of Scalability – Martin L. Abbott, Michael T. Fisher
+Building Evolutionary Architectures – Neal Ford, Rebecca Parsons, Patrick Kua
+Effective DevOps – Jennifer Davis, Ryn Daniels
+The Phoenix Project – Gene Kim, Kevin Behr, George Spafford
+Cloud Native DevOps with Kubernetes – John Arundel, Justin Domingus
+Kubernetes Up & Running – Kelsey Hightower, Brendan Burns, Joe Beda
+Microservices Patterns – Chris Richardson
+Monolith to Microservices – Sam Newman
+The DevOps Handbook – Gene Kim, Jez Humble, Patrick Debois, John Willis
+Building Secure and Reliable Systems – Google Cloud SRE Team
+The Art of Computer Programming (Vols 1-4) – Donald Knuth
+Programming Pearls – Jon Bentley
+The Linux Programming Interface – Michael Kerrisk
+Designing Data-Intensive Applications – Martin Kleppmann
+PostgreSQL: Up and Running – Regina Obe, Leo Hsu
+SQL Performance Explained – Markus Winand
+Fluent Python – Luciano Ramalho
+Java Concurrency in Practice – Brian Goetz
+High Performance Browser Networking – Ilya Grigorik
+The Go Programming Language – Alan Donovan, Brian Kernighan
+Operating Systems: Three Easy Pieces – Remzi Arpaci-Dusseau
+Programming Rust – Jim Blandy, Jason Orendorff
+The Rust Programming Language – Steve Klabnik, Carol Nichols
+Effective Modern C++ – Scott Meyers
+Modern C++ Design – Andrei Alexandrescu
+Programming C – Brian W. Kernighan, Dennis M. Ritchie
+Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow – Aurélien Géron
+Deep Learning – Ian Goodfellow, Yoshua Bengio, Aaron Courville
+Introduction to Machine Learning with Python – Andreas C. Müller, Sarah Guido
+Artificial Intelligence: A Modern Approach – Stuart Russell, Peter Norvig
+Data Science from Scratch – Joel Grus
+Refactoring UI – Adam Wathan, Steve Schoger
+Design Systems – Alla Kholmatova
+Don't Make Me Think – Steve Krug
+The Design of Everyday Things – Don Norman
+Hooked: How to Build Habit-Forming Products – Nir Eyal
+Lean UX – Jeff Gothelf
+A Philosophy of Software Design – John Ousterhout
+Release It! – Michael T. Nygard
+The Art of Unix Programming – Eric S. Raymond
+Crafting Interpreters – Robert Nystrom
+Structure and Interpretation of Computer Programs – Harold Abelson, Gerald Jay Sussman
+Pro Git – Scott Chacon, Ben Straub
+The Elements of Computing Systems – Noam Nisan, Shimon Schocken
+Unix Power Tools – Shelley Powers, Jerry Peek, Tim O'Reilly, Mike Loukides
+Haskell Programming from First Principles – Christopher Allen, Julie Moronuki
+Programming Rust – Steve Klabnik, Carol Nichols
+Concurrency in Go – Katherine Cox-Buday

@@ -1,0 +1,34 @@
+Sobre tags:
+
+<form *method="post" *action="formulario.php" *name="formulario"></>,
+-*method= post ou get, sendo get o mais comum
+-*action= arquivo que será desenvolvido
+
+<label *for></>,
+
+<input *type *name *id *class *maxlenght *size *required *placeholder *checked>,
+-*type= checkbox possui uma versao estatica e uma versao dinamica
+-*type= submit botao de enviar o form
+-*type= radio
+-*typr= text
+
+<link *rel *href></>
+
+<button *value></>
+
+<meta *charset *name *content>
+
+
+Sobre CSS:
+border: tamanhoBorda tipo cor 
+border-radius: tamanhoCurvatura
+border-color: cor
+background-color: cor
+color: cor
+accent-color: cor
+appearance: 
+
+
+Sobre PHP:
+isset
+$_GET

@@ -1,0 +1,43 @@
+label{
+    color: grey;
+}
+input[type="text"]{
+    border: 1px solid blue;
+    border-radius: 5%;
+    background-color: grey;
+}
+#itermo{
+    width: 10px;
+    height: 10px;
+    appearance: initial;
+    border-radius: 10%;
+    border: 1px solid yellowgreen;
+}
+#itermo:checked{
+    border: 2px solid blue;
+    background-color: red;
+}
+input[type="radio"]{
+    width: 10px;
+    height: 10px;
+    appearance: none;
+    border-radius: 100%;
+}
+#feminino{
+    border: 1px solid magenta;
+}
+#masculino{
+    border: 1px solid blue;
+}
+#indefinido{
+    border: 1px solid gray;
+}
+#indefinido:checked{
+    background-color: gray;
+}
+#feminino:checked{
+    background-color: magenta;
+}
+#masculino:checked{
+    background-color: blue;
+}

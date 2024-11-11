@@ -1,0 +1,5 @@
+Receber uma frase
+criptografar a frase, removendo as vogais
+	dica: armazene as posições das vogais
+mostrar a frase criptografada
+mostrar a frase de descriptografada
