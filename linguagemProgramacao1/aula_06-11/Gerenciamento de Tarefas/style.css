@@ -1,0 +1,9 @@
+@charset "UTF-8";
+
+.concluida p{
+    text-decoration: line-through;
+}
+
+.naoConcluida p{
+    text-decoration: none;
+}

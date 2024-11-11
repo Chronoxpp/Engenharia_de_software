@@ -78,9 +78,13 @@ function listarTarefasHTML()
     tarefas.forEach(
         (tarefa,index)=> {
             const li = document.createElement('li');
-            li.innerHTML = `${tarefa.exibirDados()}`;
-            li.innerHTML += `- <button onclick='editarTarefa(${index})'>Editar</button>`;
-            li.innerHTML += `- <button onclick='excluirTarefa(${index})'>Excluir</button>`;
+            li.id = `tarefa${index}`;
+
+            li.className = tarefa.concluida ? 'concluida' : 'naoConcluida';
+            
+            li.innerHTML = `<p onclick='marcarConcluida(${index})'>${tarefa.exibirDados()}</p>`;
+            li.innerHTML += ` | <button onclick='editarTarefa(${index})'>Editar</button>`;
+            li.innerHTML += ` | <button onclick='excluirTarefa(${index})'>Excluir</button>`;
 
             tarefasHTML.appendChild(li);
         }
@@ -122,3 +126,21 @@ function corrigirAposExclusaoIndexTarefaEmEdicao(indexTarefaExcluida)
 }
 
 
+window.marcarConcluida = (index) => {
+    tarefaHTML = document.getElementById(`tarefa${index}`);
+
+    tarefas[index].concluida = !tarefas[index].concluida;
+    if (tarefas[index].concluida)
+    {
+        tarefaHTML.className = `concluida`;
+    }
+    else
+    {
+        tarefaHTML.className = `naoConcluida`;
+    }
+
+    if (indexTarefaEmEdicao === index)
+    {
+        editarTarefa(index);
+    }
+};
