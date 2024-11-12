@@ -40,6 +40,8 @@ form.addEventListener('submit',
         {
             atualizarTarefa(tarefa);
         }
+
+        atualizarArmazenamentoTarefas();
     }
 );
 
@@ -109,6 +111,8 @@ window.excluirTarefa = (index) => {
     listarTarefasHTML();
 
     corrigirAposExclusaoIndexTarefaEmEdicao(index);
+
+    atualizarArmazenamentoTarefas();
 };
 
 
@@ -143,4 +147,31 @@ window.marcarConcluida = (index) => {
     {
         editarTarefa(index);
     }
+
+    atualizarArmazenamentoTarefas();
 };
+
+
+window.addEventListener('load', () => {
+    console.log(localStorage.length);
+
+    if (localStorage.getItem('tarefas'))
+    {
+        let tarefa = new Tarefa();
+
+        tarefas = JSON.parse(localStorage.getItem('tarefas'));
+        
+        for(let i = 0; i < tarefas.length; i += 1)
+        {
+            tarefas[i] = new Tarefa(tarefas[i]['resumo'], tarefas[i]['descricao'], tarefas[i]['prazoConclusao'], tarefas[i]['concluida']);
+        }
+        
+        listarTarefasHTML();
+    }
+});
+
+
+function atualizarArmazenamentoTarefas()
+{
+    localStorage.setItem('tarefas', JSON.stringify(tarefas));
+}
