@@ -128,12 +128,56 @@ int main()
     char reqUsuario[12];
     while (1)
     {
-        printf("ESC para sair. Insira um numero e eu vou dizer qual seu indice no array: "); scanf("%c", &reqUsuario);
+        printf("\n\nESC para sair. Insira um numero e eu vou dizer qual seu indice no array: "); scanf("%s", &reqUsuario);
 
-        if (reqUsuario == "esc" || reqUsuario == "ESC")
+        if (strcmp(reqUsuario, "esc") == 1 || strcmp(reqUsuario, "ESC") == 1)
         {
             break;
         }
+
+        int reqValor = atoi(reqUsuario);
+
+        int inicio = 0;
+        int fim = tamanhoArray;
+        int meio = (inicio + fim) / 2;
+        int posicaoValor = -1;
+        while (inicio < fim)
+        {
+            if(array[meio] == reqValor)
+            {
+                posicaoValor = meio;
+                break;
+            }
+            else if(array[meio] < reqValor)
+            {
+                if (inicio == (fim - 1))
+                {
+                    break;
+                }
+                
+                inicio = meio;
+                meio = (inicio + fim) / 2;
+            }
+            else if(array[meio] > reqValor)
+            {
+                fim = meio;
+                meio = (inicio + fim) / 2;
+            }
+            else
+            {
+                posicaoValor = -1;
+                break;
+            }
+        }
+
+        if (posicaoValor < 0)
+        {
+            printf("\nO valor %d nao existe no array!", reqValor);
+        }
+        else
+        {
+            printf("\nValor %d encontrado na posicao %d", reqValor, posicaoValor);
+        }  
     }
 
     return 0;
