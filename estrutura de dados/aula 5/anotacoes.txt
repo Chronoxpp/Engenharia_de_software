@@ -1,0 +1,28 @@
+Nota sobre Aula 5 - 14/11/2024
+
+Fiquei ausente na aula 5, realizada em 14/11/2024. Para acompanhar o conteúdo, peguei o arquivo main.c com minha amiga Natasha. O professor apresentou funções em C durante a aula, mas os slides não foram disponibilizados. Por isso, precisei complementar os estudos pesquisando na internet.
+
+Funções em C
+As funções em C são bastante semelhantes às funções em Java, seguindo a mesma estrutura básica:
+
+tipo_retorno nome_funcao(argumentos) {  
+    corpo_da_funcao  
+}  
+
+Passagem de Argumentos em C
+Por padrão, C utiliza passagem de argumentos por valor, ou seja, os valores são copiados para a função e as alterações não afetam a variável original. Além disso, C não possui o conceito de objetos.
+
+No entanto, é possível realizar passagem por referência utilizando os operadores * e &. Para isso:
+
+Na definição da função, use * antes do nome do argumento para indicá-lo como um ponteiro (exemplo: *argumento).
+Ao chamar a função, forneça o endereço da variável como argumento, usando & antes do nome da variável (exemplo: &variavel).
+Ponteiros e Modificação de Valores
+Uma variável do tipo ponteiro é capaz de manipular valores armazenados na memória, pois ela:
+
+Possui seu próprio endereço na memória.
+Armazena o endereço de outra variável.
+Ao trabalhar com ponteiros:
+
+Se você modificar diretamente o valor apontado, como em *a = 2, estará alterando o valor armazenado no endereço referenciado por a.
+Se modificar o ponteiro diretamente, como em a = 2, estará alterando o endereço armazenado no ponteiro, fazendo com que ele passe a apontar para outro local na memória.
+Essa distinção é fundamental para evitar comportamentos inesperados ao manipular ponteiros.

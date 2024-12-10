@@ -83,7 +83,7 @@ int main()
     system("pause");
 
 
-    //Realiza a ordenacao do array pelo algoritmo Bubble sort
+    // //Realiza a ordenacao do array pelo algoritmo Bubble sort
     int aux;
     for(int i = 0; i < tamanhoArray -1; i += 1)
     {
@@ -97,6 +97,24 @@ int main()
             }
         }
     }
+
+    // // Realiza a ordenacao do array pelo algoritmo Selection sort
+    // for(int i = 0; i < tamanhoArray; i += 1)
+    // {
+    //     int indiceComMenorValor = i;
+    //     for(int j = (i+1); j < tamanhoArray; j += 1 )
+    //     {
+    //         if(array[j] < array[indiceComMenorValor])
+    //         {
+    //             indiceComMenorValor = j;
+    //         }
+    //     }
+
+    //     int aux = array[i];
+    //     array[i] = array[indiceComMenorValor];
+    //     array[indiceComMenorValor] = aux;
+    // }
+
 
     //Cria um novo ponteiro para exibir o array ordenado, e aloca a memoria
     char *msgArrayNovo = (char *)malloc(espacoExibicaoArray * sizeof(char));
@@ -128,7 +146,7 @@ int main()
     char reqUsuario[12];
     while (1)
     {
-        printf("\n\nESC para sair. Insira um numero e eu vou dizer qual seu indice no array: "); scanf("%s", &reqUsuario);
+        printf("\n\nDigite esc para sair. Insira um numero e eu vou dizer qual seu indice no array: "); scanf("%s", &reqUsuario);
 
         if (strcmp(reqUsuario, "esc") == 1 || strcmp(reqUsuario, "ESC") == 1)
         {

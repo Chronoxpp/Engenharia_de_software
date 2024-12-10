@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1732804312 source:e:\backup\engenharia_de_software\estrutura de dados\desafio 1\codeblocks\desafio1\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+
